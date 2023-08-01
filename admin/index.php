@@ -1,5 +1,5 @@
 <?php
-    include '../koneksi/koneksi.php';
+include '../koneksi/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +23,8 @@
     <!-- Custom styles for this template-->
     <link href="../asset/css/sb-admin-2.min.css" rel="stylesheet">
 
-     <!-- Custom styles for this page -->
-     <link href="../asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="../asset/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -56,41 +56,41 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-             <!-- Nav Item - Dashboard -->
-             <li class="nav-item">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=kategori">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Kategori</span></a>
             </li>
 
-             <!-- Nav Item - Dashboard -->
-             <li class="nav-item">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=produk">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Produk</span></a>
             </li>
 
-             <!-- Nav Item - Dashboard -->
-             <li class="nav-item">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=pembelian">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Pembelian</span></a>
             </li>
 
-             <!-- Nav Item - Dashboard -->
-             <li class="nav-item">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=pelanggan">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Pelanggan</span></a>
             </li>
 
-             <!-- Nav Item - Dashboard -->
-             <li class="nav-item">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=logout">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Logout</span></a>
             </li>
-            
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -145,21 +145,37 @@
                     <!-- Page Heading -->
 
                     <?php
-                        if(isset($_GET['halaman'])){
-                            if($_GET['halaman']=="kategori"){
-                                include 'kategori.php';
-                            } elseif($_GET['halaman']=="produk"){
-                                include 'produk.php';
-                            }elseif($_GET['halaman']=="pembelian"){
-                                include 'pembelian.php';
-                            }elseif($_GET['halaman']=="pelanggan"){
-                                include 'pelanggan.php';
-                            }
-                        }
-                        else{
-                            include 'dashboard.php';
-                        }
-                    ?>
+if (isset($_GET['halaman'])) {
+
+    // halaman kategori
+    if ($_GET['halaman'] == "kategori") {
+        include 'kategori.php';
+    } elseif ($_GET['halaman'] == "tambah_kategori") {
+        include 'tambah/tambah_kategori.php';
+    }
+
+    // halaman produk
+    elseif ($_GET['halaman'] == "produk") {
+        include 'produk.php';
+    } elseif ($_GET['halaman'] == "tambah_produk") {
+        include 'tambah/tambah_produk.php';
+    }
+
+    // halaman pembelian
+    elseif ($_GET['halaman'] == "pembelian") {
+        include 'pembelian.php';
+    } elseif ($_GET['halaman'] == "detail_pembelian") {
+        include 'detail/detail_pembelian.php';
+    }
+
+    // halaman pelanggan
+    elseif ($_GET['halaman'] == "pelanggan") {
+        include 'pelanggan.php';
+    }
+} else {
+    include 'dashboard.php';
+}
+?>
 
                 </div>
                 <!-- /.container-fluid -->
@@ -225,6 +241,14 @@
     <!-- Page level custom scripts -->
     <script src="../asset/js/demo/datatables-demo.js"></script>
 
+    <script>
+    $(document).ready(function() {
+        $(".btn-tambah").on("click", function() {
+            // alert("berhasil")tes
+            $('.input-foto').append("<input type='file' name='foto[]' class='form-control mt-1'>");
+        })
+    })
+    </script>
 </body>
 
 </html>
