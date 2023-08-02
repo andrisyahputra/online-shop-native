@@ -159,6 +159,8 @@ if (isset($_GET['halaman'])) {
         include 'produk.php';
     } elseif ($_GET['halaman'] == "tambah_produk") {
         include 'tambah/tambah_produk.php';
+    } elseif ($_GET['halaman'] == "detail_produk") {
+        include 'detail/detail_produk.php';
     }
 
     // halaman pembelian

@@ -63,8 +63,11 @@ while ($pecah = $ambil->fetch_assoc()) {
             <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label">Deskripsi Produk</label>
                 <div class="col-sm-9">
-                    <textarea type="number" class="form-control" name="deskripsi" placeholder="Masukan Produk" required>
-                    </textarea>
+                    <div class="mb-3">
+                        <label for="" class="form-label"></label>
+                        <textarea type="text" class="form-control" name="deskripsi" placeholder="Masukan Produk"
+                            rows="3"></textarea>
+                    </div>
                 </div>
             </div>
 
@@ -102,25 +105,47 @@ if (isset($_POST['simpan'])) {
     $nama_foto = $_FILES['foto']['name'];
     $lokasi_foto = $_FILES['foto']['tmp_name'];
 
-    move_uploaded_file($lokasi_foto[0], "../asset/foto_produk/" . $nama_foto[0]);
-    $koneksi->query("INSERT INTO `produk`(`id_kategori`, `nama_produk`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`, `stok_produk`)
-    VALUES
-    ('$id_kategori','$nama','$harga','$berat','$nama_foto[0]','$deskripsi','$stok')");
+    // move_uploaded_file($lokasi_foto[0], "../asset/foto_produk/" . $nama_foto[0]);
+    // $koneksi->query("INSERT INTO `produk`(`id_kategori`, `nama_produk`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`, `stok_produk`)
+    // VALUES
+    // ('$id_kategori','$nama','$harga','$berat','$nama_foto[0]','$deskripsi','$stok')");
 
     $id_baru = $koneksi->insert_id;
+
+    // foreach ($nama_foto as $key => $tiap_nama) {
+    //     $tiap_lokasi = $lokasi_foto[$key];
+
+    //     move_uploaded_file($tiap_lokasi, "../asset/foto_produk/" . $tiap_nama);
+
+    //     $koneksi->query("INSERT INTO `produk_foto`(`id_produk`, `nama_produk_foto`)
+    //     VALUES
+    //     ('$id_baru','$tiap_nama')");
+    // }
+
     foreach ($nama_foto as $key => $tiap_nama) {
         $tiap_lokasi = $lokasi_foto[$key];
-        move_uploaded_file($tiap_lokasi, "../asset/foto_produk/" . $tiap_nama);
+        $ext = pathinfo($tiap_nama, PATHINFO_EXTENSION);
+        $filename = time() . '_' . $key . '.' . $ext;
+        $lokasi_simpan = "../asset/foto_produk/" . $filename;
 
-        $koneksi->query("INSERT INTO `produk_foto`(`id_produk`, `nama_produk_foto`)
-        VALUES
-        ('$id_baru','$tiap_nama')");
+        if (move_uploaded_file($tiap_lokasi, $lokasi_simpan)) {
+
+            $koneksi->query("INSERT INTO `produk`(`id_kategori`, `nama_produk`, `harga_produk`, `berat_produk`, `foto_produk`, `deskripsi_produk`, `stok_produk`)
+            VALUES
+            ('$id_kategori', '$nama', '$harga', '$berat', '$filename[0]', '$deskripsi', '$stok')");
+            $koneksi->query("INSERT INTO `produk_foto`(`id_produk`, `nama_produk_foto`)
+            VALUES
+            ('$id_baru','$filename')");
+        } else {
+            // Jika gagal menyimpan file, Anda dapat menangani kondisi ini sesuai kebutuhan Anda.
+            // Misalnya, tampilkan pesan kesalahan atau lakukan tindakan lain.
+        }
     }
 
     // echo "<pre>";
     // print_r($_FILES['foto']);
     // echo "</pre>";
     echo "<script>alert('data berhasil disimpan');</script>";
-    echo "<script>location='index.php?halaman=kategori';</script>";
+    echo "<script>location='index.php?halaman=produk';</script>";
 }
 ?>

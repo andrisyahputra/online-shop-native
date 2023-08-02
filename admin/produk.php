@@ -37,10 +37,16 @@ while ($pecah = $ambil->fetch_assoc()) {
                         <td><?=$item['nama_produk']?></td>
                         <td><?=number_format($item['harga_produk'])?></td>
                         <td><?=number_format($item['berat_produk'])?></td>
-                        <td><?=$item['foto_produk']?></td>
-                        <td class="text-center" width="150">
-                            <a class="btn btn-primary" href="#" role="button">Edit</a>
-                            <a class="btn btn-danger" href="#" role="button">Hapus</a>
+                        <td class="text-center">
+                            <img width="150" src="../asset/foto_produk/<?=$item['foto_produk']?>"
+                                alt="$item['foto_produk']?>" class="img-fluid">
+                        </td>
+                        <td class="text-center" width="200">
+                            <a class="btn btn-sm btn-info"
+                                href="index.php?halaman=detail_produk&id=<?=$item['id_produk']?>"
+                                role="button">Detail</a>
+                            <a class="btn btn-sm btn-primary" href="#" role="button">Edit</a>
+                            <a class="btn btn-sm btn-danger" href="#" role="button">Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach;?>
