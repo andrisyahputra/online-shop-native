@@ -1,5 +1,13 @@
 <?php
+session_start();
 include '../koneksi/koneksi.php';
+
+if (!isset($_SESSION['admin'])) {
+    echo "<script>alert('Silakan Login Dahulu');</script>";
+    echo "<script>location='login.php';</script>";
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -184,6 +192,12 @@ if (isset($_GET['halaman'])) {
     elseif ($_GET['halaman'] == "pelanggan") {
         include 'pelanggan.php';
     }
+
+    // halaman logout
+    elseif ($_GET['halaman'] == "logout") {
+        include 'logout.php';
+    }
+
 } else {
     include 'dashboard.php';
 }
