@@ -154,6 +154,8 @@ if (isset($_GET['halaman'])) {
         include 'tambah/tambah_kategori.php';
     } elseif ($_GET['halaman'] == "edit_kategori") {
         include 'edit/edit_kategori.php';
+    } elseif ($_GET['halaman'] == "hapus_kategori") {
+        include 'hapus/hapus_kategori.php';
     }
 
     // halaman produk
@@ -167,6 +169,8 @@ if (isset($_GET['halaman'])) {
         include 'hapus/hapus_foto.php';
     } elseif ($_GET['halaman'] == "edit_produk") {
         include 'edit/edit_produk.php';
+    } elseif ($_GET['halaman'] == "hapus_produk") {
+        include 'hapus/hapus_produk.php';
     }
 
     // halaman pembelian

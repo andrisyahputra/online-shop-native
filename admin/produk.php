@@ -47,7 +47,8 @@ while ($pecah = $ambil->fetch_assoc()) {
                                 role="button">Detail</a>
                             <a class="btn btn-sm btn-primary"
                                 href="index.php?halaman=edit_produk&id=<?=$item['id_produk']?>" role="button">Edit</a>
-                            <a class="btn btn-sm btn-danger" href="#" role="button">Hapus</a>
+                            <a class="btn btn-sm btn-danger"
+                                href="index.php?halaman=hapus_produk&id=<?=$item['id_produk']?>" role="button">Hapus</a>
                         </td>
                     </tr>
                     <?php endforeach;?>
