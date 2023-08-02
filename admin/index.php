@@ -152,6 +152,8 @@ if (isset($_GET['halaman'])) {
         include 'kategori.php';
     } elseif ($_GET['halaman'] == "tambah_kategori") {
         include 'tambah/tambah_kategori.php';
+    } elseif ($_GET['halaman'] == "edit_kategori") {
+        include 'edit/edit_kategori.php';
     }
 
     // halaman produk
@@ -161,8 +163,10 @@ if (isset($_GET['halaman'])) {
         include 'tambah/tambah_produk.php';
     } elseif ($_GET['halaman'] == "detail_produk") {
         include 'detail/detail_produk.php';
-    }elseif ($_GET['halaman'] == "hapus_foto") {
+    } elseif ($_GET['halaman'] == "hapus_foto") {
         include 'hapus/hapus_foto.php';
+    } elseif ($_GET['halaman'] == "edit_produk") {
+        include 'edit/edit_produk.php';
     }
 
     // halaman pembelian

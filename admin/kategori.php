@@ -29,7 +29,8 @@ while ($pecah = $ambil->fetch_assoc()) {
                     <td width="50"><?=$key + 1?></td>
                     <td><?=$item['nama_kategori']?></td>
                     <td class="text-center" width="150">
-                        <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                        <a href="index.php?halaman=edit_kategori&id=<?=$item['id_kategori']?>"
+                            class="btn btn-sm btn-primary">Edit</a>
                         <a href="#" class="btn btn-sm btn-danger ">Hapus</a>
                     </td>
                 </tr>

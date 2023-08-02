@@ -26,43 +26,42 @@ while ($pecah = $ambil->fetch_assoc()) {
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Nama Kategori :</label>
             <div class="col-sm-9">
-                <input disabled class="form-control" placeholder="<?=$detailproduk['nama_kategori']?>">
+                <input disabled class="form-control" value="<?=$detailproduk['nama_kategori']?>">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Nama Produk :</label>
             <div class="col-sm-9">
-                <input disabled class="form-control" placeholder="<?=$detailproduk['nama_produk']?>">
+                <input disabled class="form-control" value="<?=$detailproduk['nama_produk']?>">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Harga Produk :</label>
             <div class="col-sm-9">
-                <input disabled class="form-control"
-                    placeholder="Rp. <?=number_format($detailproduk['harga_produk'])?>">
+                <input disabled class="form-control" value="Rp. <?=number_format($detailproduk['harga_produk'])?>">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Berat Produk :</label>
             <div class="col-sm-9">
-                <input disabled class="form-control" placeholder="<?=$detailproduk['berat_produk']?>">
+                <input disabled class="form-control" value="<?=$detailproduk['berat_produk']?>">
             </div>
         </div>
 
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Deskripsi Produk :</label>
             <div class="col-sm-9">
-                <textarea disabled class="form-control" placeholder="<?=$detailproduk['deskripsi_produk']?>"></textarea>
+                <textarea disabled class="form-control" value="<?=$detailproduk['deskripsi_produk']?>"></textarea>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Stok Produk :</label>
             <div class="col-sm-9">
-                <textarea disabled class="form-control" placeholder="<?=$detailproduk['stok_produk']?>"></textarea>
+                <textarea disabled class="form-control" value="<?=$detailproduk['stok_produk']?>"></textarea>
             </div>
         </div>
 
