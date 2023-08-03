@@ -1,0 +1,121 @@
+body {
+    background-color: #d3ded3;
+    color: #fff;
+}
+
+/* navbar */
+.navbar {
+    background-color: #708090;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    border-bottom: 1px solid #a9a9a9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.navbar .navbar-logo{
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: none;
+}
+
+.navbar .navbar-logo span {
+    color: #808;
+}
+
+.navbar .navbar-menu a{
+    color: #fff;
+    font-size: 1rem;
+}
+
+.navbar .navbar-menu a{
+    color: #fff;
+    font-size: 1rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.navbar .navbar-menu a:hover{
+    color: #191970;
+}
+
+.navbar .navbar-menu a:after{
+    content: '';
+    display: block;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.1rem solid #191970;
+    transform: scaleX(0);
+    transition: 0.2s linear;
+}
+
+.navbar .navbar-menu a:hover::after{
+    transform: scaleX(0.5);
+}
+.navbar .navbar-icon a{
+    color: #fff;
+    margin: 0 0.5rem;
+}
+#btn-menu {
+    display: none;
+}
+
+
+/* rensonsive */
+/* untuk laptop */
+@media (max-width: 1366px) {
+    html {
+        font-size: 90%;
+    }
+}
+/* untuk tablet */
+@media (max-width: 768px) {
+    html {
+        font-size: 75%;
+    }
+    
+    /* ketika layar tables icon menu muncul */
+    #btn-menu {
+        display: inline-block;
+    }
+    .navbar .navbar-menu{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        background-color: #fff;
+        width: 30rem;
+        height: 100vh;
+        transition: 0.3;
+    }
+
+    .navbar .navbar-menu.active{
+        right: 0;
+    }
+    .navbar .navbar-menu a{
+        color: #191970;
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+    }
+    .navbar .navbar-menu a::after {
+        transform-origin: 0 0;
+    }
+    .navbar .navbar-menu a:hover::after{
+        transform: scaleX(0.2);
+    }
+}
+/* untuk hp */
+@media (max-width: 450px) {
+    html {
+        font-size: 75%;
+    }
+}
