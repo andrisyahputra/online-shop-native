@@ -1,3 +1,21 @@
+@font-face {
+    font-family: font1;
+    src: url(../font/Poppins-SemiBold.ttf);
+}
+@font-face {
+    font-family: font2;
+    src: url(../font/Poppins-Medium.ttf);
+}
+@font-face {
+    font-family: font3;
+    src: url(../font/Poppins-Bold.ttf);
+}
+@font-face {
+    font-family: font4;
+    src: url(../font/Poppins-Black.ttf);
+}
+
+
 body {
     background-color: #d3ded3;
     color: #fff;
@@ -24,6 +42,7 @@ body {
     font-weight: bold;
     font-style: italic;
     text-decoration: none;
+    font-family: font4;
 }
 
 .navbar .navbar-logo span {
@@ -42,6 +61,7 @@ body {
     text-decoration: none;
     font-weight: 700;
     display: inline-block;
+    font-family: font2;
 }
 
 .navbar .navbar-menu a:hover{
@@ -67,6 +87,93 @@ body {
 #btn-menu {
     display: none;
 }
+
+/* hero section */
+.hero{
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .content {
+    position: absolute;
+    top: 35%;
+    padding: 1.4rem 7%;
+    max-width: 60rem;
+}
+
+.hero .content h1{
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.3);
+    font-family: font3;
+}
+
+.hero .content h1 span {
+    color : #800000;
+}
+.hero .content p {
+   font-size: 1.6rem;
+   margin-top: 1rem;
+   font-family: font2;
+   text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.hero .content .btn {
+    padding: 1rem 3rem;
+    font-size: 1.4rem;
+    font-family: font2;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+
+#owl-nav .owl-prev ,
+#owl-nav .owl-next {
+    position: absolute;
+    top: 45%;
+    z-index: 10;
+    border: none;
+    background-color: #01497c;
+    color: #fff;
+    outline: none;
+    padding: 10px 25px;
+    font-size: 15px;
+}
+
+#owl-nav .owl-prev{
+    left: 0;
+    border-radius: 0 50px 50px 0;
+}
+#owl-nav .owl-next{
+    right: 0;
+    border-radius: 50px 0 0 50px;
+}
+
+#owl-nav .owl-prev:hover,
+#owl-nav .owl-next:hover {
+    background-color: #800000;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* rensonsive */
@@ -105,6 +212,7 @@ body {
         margin: 1.5rem;
         padding: 0.5rem;
         font-size: 1.5rem;
+        font-family: font2;
     }
     .navbar .navbar-menu a::after {
         transform-origin: 0 0;
@@ -112,6 +220,24 @@ body {
     .navbar .navbar-menu a:hover::after{
         transform: scaleX(0.2);
     }
+    /* hero section */
+    .hero .content {
+        padding: 1.4rem 14%;
+    }
+    .hero .content h1 {
+        font-size: 3rem;
+    }
+    .hero .content p {
+       font-size: 0.6rem;
+    }
+    
+    .hero .content .btn {
+        font-size: 0.6rem;
+    }
+    #owl-nav .owl-prev ,
+#owl-nav .owl-next {
+    width: 5px;
+}
 }
 /* untuk hp */
 @media (max-width: 450px) {

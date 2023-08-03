@@ -17,6 +17,8 @@
     <!-- Custom styles for this page -->
     <link href="asset/vendor/datatables/dataTables.bootstrap4.min.css">
 
+    <link rel="stylesheet" href="asset/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="asset/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="asset/css/style.css">
 </head>
 
@@ -43,6 +45,50 @@
     </nav>
     <!-- navbar akhir -->
 
+    <!-- Hero Section Mulai-->
+    <section class="hero">
+        <div id="owl-nav"> </div>
+        <div class="owl-carousel owl-theme">
+
+            <div class="item">
+                <img src="asset/foto/slider/slider1.jpg" alt="slider1.jpg">
+                <main class="content">
+                    <h1>Toko <span>Online</span></h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
+                        odio voluptates.
+                    </p>
+                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                </main>
+            </div>
+
+            <div class="item">
+                <img src="asset/foto/slider/slider2.jpg" alt="slider2.jpg">
+                <main class="content">
+                    <h1>Toko <span>Online</span></h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
+                        odio voluptates.
+                    </p>
+                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                </main>
+            </div>
+
+            <div class="item">
+                <img src="asset/foto/slider/slider3.jpg" alt="slider3.jpg">
+                <main class="content">
+                    <h1>Toko <span>Online</span></h1>
+                    <p>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
+                        odio voluptates.
+                    </p>
+                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                </main>
+            </div>
+
+        </div>
+    </section>
+    <!-- Hero Section Akhir -->
 
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
@@ -58,6 +104,7 @@
     <script src="asset/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="asset/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+    <script src="asset/js/owl.carousel.min.js"></script>
     <!-- buat js ketika tombol btn menu -->
     <script src="asset/js/main.js"></script>
 </body>
