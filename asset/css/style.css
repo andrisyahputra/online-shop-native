@@ -216,10 +216,85 @@ body {
     font-weight: 700;
 }
 
+/* kontak */
+.kontak {
+    padding: 0 0 50px;
+    margin-top: 5rem;
+}
+
+.kontak .kontak-map iframe {
+    flex: 1 1 45%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    box-shadow: 0 5px 25px rgba(1 1 1 / 20%);
+}
+
+.kontak .kontak-form
+{
+    color: black;
+    margin-top: 10px;
+}
+
+.kontak .kontak-form .card {
+    box-shadow: 0 5px 25px rgba(1 1 1 / 20%);
+}
 
 
+/* footer */
+footer {
+    padding: 1rem 0;
+    background-color: #222;
+    margin-top: 5rem;
+    color: #fff;
+}
 
+footer h3{
+    margin-bottom: 1rem;
+    margin-left: 3rem;
 
+}
+footer .footer-menu li {
+list-style: none;
+}
+footer .footer-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+footer .footer-menu a:hover{
+    color: #800000;
+}
+footer .footer-kontak {
+    font-size: 1.1rem;
+}
+
+footer .footer-social a{
+    margin: 0 10px 0 0;
+    display: inline-block;
+    color: #01497c;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    line-height: 30px;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: bottom;
+    background-color: #fff;
+    text-decoration: none;
+}
+footer .footer-social a:hover {
+    background-color: #800000;
+    color: white;
+}
+
+.created{
+    padding: 0 0.5rem 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.1rem;
+    background-color: #555;
+}
 
 
 
