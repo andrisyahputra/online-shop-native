@@ -90,6 +90,137 @@
     </section>
     <!-- Hero Section Akhir -->
 
+
+
+    <!-- about tentangkami mulai-->
+    <div class="container">
+        <div class="about">
+            <div class="judul"><span>Tentang</span> Kami</div>
+            <div class="row">
+                <div class="col-md-6 about-img">
+                    <img src="asset/foto/slider/slider1.jpg" alt="slider1.jpg">
+                </div>
+                <div class="col-md-6 content">
+                    <h3>Kenapa Memilih Produk Kami</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque error facere totam magnam sequi
+                        minus.
+                    </p>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, sed.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- about tentangkami akhir -->
+
+        <!-- produk section mulai -->
+        <section class="produk">
+            <h2 class="judul"><span>Produk</span> Kami</h2>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
+                        <div class="card-body content">
+                            <h5>Nama Produk</h5>
+                            <p>Harga Produk</p>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </a>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
+                        <div class="card-body content">
+                            <h5>Nama Produk</h5>
+                            <p>Harga Produk</p>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </a>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
+                        <div class="card-body content">
+                            <h5>Nama Produk</h5>
+                            <p>Harga Produk</p>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </a>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
+                        <div class="card-body content">
+                            <h5>Nama Produk</h5>
+                            <p>Harga Produk</p>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </a>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
+                        <div class="card-body content">
+                            <h5>Nama Produk</h5>
+                            <p>Harga Produk</p>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-shopping-cart"></i> Keranjang
+                            </a>
+                            <a href="#" class="btn btn-sm btn-success">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- produk section end -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="asset/vendor/jquery/jquery.min.js"></script>
     <script src="asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

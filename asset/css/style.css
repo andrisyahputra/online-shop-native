@@ -17,7 +17,7 @@
 
 
 body {
-    background-color: #d3ded3;
+    background-color: #ccc;
     color: #fff;
 }
 
@@ -136,7 +136,7 @@ body {
     top: 45%;
     z-index: 10;
     border: none;
-    background-color: #01497c;
+    background-color: #01497c5e;
     color: #fff;
     outline: none;
     padding: 10px 25px;
@@ -154,12 +154,67 @@ body {
 
 #owl-nav .owl-prev:hover,
 #owl-nav .owl-next:hover {
-    background-color: #800000;
+    background-color: #8000007c;
     cursor: pointer;
     transition: 0.3s;
 }
 
+/* about */
+.about{
+    padding: 0 0 50px;
+    margin-top: 5rem;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
 
+.judul {
+    font-family: font3;
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 0.3rem solid #800000;
+    border-bottom-right-radius: 10px;
+    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+}
+
+.judul span {
+    color: #800000;
+}
+
+.about .about-img{
+    flex: 1 1 45rem;
+}
+
+.about .about-img img {
+    width: 100%;
+}
+
+.about .content h3{
+    font-size: 2rem;
+}
+.about .content p{
+    margin-bottom: 0.8rem;
+    font-size: 1.4rem;
+    font-weight: 100;
+    line-height: 1.6rem;
+}
+
+.produk {
+    padding: 0 0 50px;
+    margin-top: 50px;
+}
+
+.produk .card {
+    box-shadow: 0 5px 25px rgba(1 1 0 /20%);
+    margin-top: 1.5rem;
+}
+.produk .content {
+    text-align: center;
+}
+.produk .content h5,
+.produk .content p {
+    color: black;
+    font-weight: 700;
+}
 
 
 
@@ -228,16 +283,17 @@ body {
         font-size: 3rem;
     }
     .hero .content p {
-       font-size: 0.6rem;
+       font-size: 0.8rem;
     }
     
     .hero .content .btn {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
     #owl-nav .owl-prev ,
-#owl-nav .owl-next {
-    width: 5px;
-}
+    #owl-nav .owl-next {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
 }
 /* untuk hp */
 @media (max-width: 450px) {
