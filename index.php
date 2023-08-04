@@ -1,3 +1,14 @@
+<?php
+include 'koneksi/koneksi.php';
+
+$produk = [];
+$ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori LIMIT 8");
+while ($pecah = $ambil->fetch_assoc()) {
+    $produk[] = $pecah;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,9 +18,6 @@
     <title>Toko Online</title>
     <!-- Custom fonts for this template-->
     <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="asset/css/sb-admin-2.min.css" rel="stylesheet">
@@ -26,23 +34,7 @@
 
 
     <!-- navbar start -->
-    <nav class="navbar">
-        <a href="index.php" class="navbar-logo">Toko<span>Online</span></a>
-        <div class="navbar-menu">
-            <a href="index.php">Beranda</a>
-            <a href="#">Produk</a>
-            <a href="#">About</a>
-            <a href="#">Tentang Kami</a>
-            <a href="#">KOntak</a>
-        </div>
-
-        <div class="navbar-icon">
-            <a href="#"><i class="fas fa-search"></i></a>
-            <a href="#"><i class="fas fa-shopping-cart"></i></a>
-            <a href="#"><i class="fas fa-user"></i></a>
-            <a href="#" id="btn-menu"><i class="fas fa-bars"></i></a>
-        </div>
-    </nav>
+    <?php include 'include/navbar.php'?>
     <!-- navbar akhir -->
 
     <!-- Hero Section Mulai-->
@@ -118,13 +110,13 @@
         <section class="produk">
             <h2 class="judul"><span>Produk</span> Kami</h2>
             <div class="row">
-
+                <?php foreach ($produk as $key => $item): ?>
                 <div class="col-md-3">
                     <div class="card">
-                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
+                        <img src="asset/foto_produk/<?=$item['foto_produk'];?>" alt="<?=$item['foto_produk'];?>">
                         <div class="card-body content">
-                            <h5>Nama Produk</h5>
-                            <p>Harga Produk</p>
+                            <h5><?=$item['nama_produk']?></h5>
+                            <p>Rp. <?=number_format($item['harga_produk'])?></p>
                             <a href="#" class="btn btn-sm btn-success">
                                 <i class="fas fa-shopping-cart"></i> Keranjang
                             </a>
@@ -135,74 +127,7 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
-                        <div class="card-body content">
-                            <h5>Nama Produk</h5>
-                            <p>Harga Produk</p>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-shopping-cart"></i> Keranjang
-                            </a>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-eye"></i> Details
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
-                        <div class="card-body content">
-                            <h5>Nama Produk</h5>
-                            <p>Harga Produk</p>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-shopping-cart"></i> Keranjang
-                            </a>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-eye"></i> Details
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
-                        <div class="card-body content">
-                            <h5>Nama Produk</h5>
-                            <p>Harga Produk</p>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-shopping-cart"></i> Keranjang
-                            </a>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-eye"></i> Details
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3">
-                    <div class="card">
-                        <img src="asset/foto/kuncing.png" alt="kuncing.png">
-                        <div class="card-body content">
-                            <h5>Nama Produk</h5>
-                            <p>Harga Produk</p>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-shopping-cart"></i> Keranjang
-                            </a>
-                            <a href="#" class="btn btn-sm btn-success">
-                                <i class="fas fa-eye"></i> Details
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach;?>
 
             </div>
         </section>
@@ -285,53 +210,11 @@
 
     </div>
     <!-- footer mulai-->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <h3>Halaman Utama</h3>
-                    <ul class="footer-menu">
-                        <li><a href="#">Beranda</a></li>
-                        <li><a href="#">Tentang Kami</a></li>
-                        <li><a href="#">Produk</a></li>
-                        <li><a href="#">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <h3>Hubungi kami</h3>
-                    <ul class="footer-kotak">
-                        <b><i class="fas fa-store"></i> Toko Online</b>
-                        <br>
-                        <b><i class="fas fa-city"></i> Binjai</b>
-                        <br>
-                        <b><i class="fas fa-map-marker-alt"></i> Perjuangan</b>
-                        <br>
-                        <b><i class="fas fa-phone"></i> 081278391690</b>
-                        <br>
-                        <b><i class="fas fa-envelope"></i>andrisyahputra2209@gmail.com</b>
-                        <br>
-                        <b><i class="fas fa-user"></i>Andri Syahputra</b>
-                    </ul>
-                </div>
-                <div class="col-4">
-                    <h3>Social Media kami</h3>
-                    <ul class="footer-social">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></i></a>
-                    </ul>
-                </div>
+    <?php include 'include/footer.php'?>
+    <!-- footer akhir-->
 
-            </div>
-        </div>
-    </footer>
-    <!-- footer akhir -->
 
-    <!-- hak cipta -->
-    <div class="created">
-        <p>Created By <a href="#">Andri Syahputra</a>. | &copy; 2023</p>
-    </div>
+
 
 
 

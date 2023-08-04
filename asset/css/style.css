@@ -18,7 +18,6 @@
 
 body {
     background-color: #ccc;
-    color: #fff;
 }
 
 /* navbar */
@@ -27,7 +26,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.4rem 7%;
+    padding: 1rem 7%;
     border-bottom: 1px solid #a9a9a9;
     position: fixed;
     top: 0;
@@ -103,6 +102,7 @@ body {
     top: 35%;
     padding: 1.4rem 7%;
     max-width: 60rem;
+    color: #fff;
 }
 
 .hero .content h1{
@@ -120,6 +120,7 @@ body {
    margin-top: 1rem;
    font-family: font2;
    text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+   color: #fff;
 }
 
 .hero .content .btn {
@@ -164,6 +165,7 @@ body {
     padding: 0 0 50px;
     margin-top: 5rem;
     text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    color: #fff;
 }
 
 .judul {
@@ -174,6 +176,7 @@ body {
     border-bottom: 0.3rem solid #800000;
     border-bottom-right-radius: 10px;
     text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
+    color: #fff;
 }
 
 .judul span {
@@ -239,6 +242,52 @@ body {
 .kontak .kontak-form .card {
     box-shadow: 0 5px 25px rgba(1 1 1 / 20%);
 }
+/* produk */
+
+.page-produk{
+    margin: 6rem 0;
+}
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .5);
+}
+.breadcrumb> li + li:before{
+    content: "\00a0 > \00a0";
+    color: #ccc;
+}
+.page-produk .card {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, .5);
+}
+
+.page-produk .card-header h4 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.page-produk .nav a:hover{
+    background-color: #eee;
+}
+.page-produk .nav a {
+    font-size: 16px;
+    font-weight: 700;
+}
+.page-produk .box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.page-produk .box,
+.page-produk .card-produk{
+    margin-bottom: 2rem;
+}
+.page-produk .card-produk {
+    text-align: center;
+    font-weight: 600;
+}
+
 
 
 /* footer */
@@ -288,7 +337,7 @@ footer .footer-social a:hover {
     color: white;
 }
 
-.created{
+.created p{
     padding: 0 0.5rem 0;
     color: #fff;
     text-align: center;
