@@ -6,7 +6,8 @@
 
 <?php
 
-$id_produk = $_GET['id'];
+$id_produk = $_GET['id_produk'];
+$id_foto = $_GET['id_foto'];
 
 $kategori = [];
 $ambil = $koneksi->query("SELECT * FROM kategori");
@@ -16,6 +17,9 @@ while ($pecah = $ambil->fetch_assoc()) {
 
 $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE id_produk='$id_produk'");
 $edit = $ambil->fetch_assoc();
+
+$ambil = $koneksi->query("SELECT * FROM produk_foto JOIN produk ON produk_foto.id_produk=produk.id_produk WHERE id_produk_foto='$id_foto'");
+$editfoto = $ambil->fetch_assoc();
 
 ?>
 <!-- <pre>< print_r($edit)></pre> -->
@@ -64,7 +68,7 @@ $edit = $ambil->fetch_assoc();
                 <div class="col-sm-9">
                     <img width="150" src="../asset/foto_produk/<?=$edit['foto_produk']?>"
                         alt="<?=$edit['foto_produk']?>" class="img-thumbnail">
-                    <input type="file" name="foto[]" class="form-control">
+                    <input type="file" name="foto" class="form-control">
                 </div>
             </div>
 
@@ -111,14 +115,14 @@ if (isset($_POST['simpan'])) {
 
     // jika foto di ubah
     if (!empty($lokasifoto)) {
-        move_uploaded_file($lokasifoto[0], "../assets/foto_produk/" . $namafoto[0]);
+        move_uploaded_file($lokasifoto, "../asset/foto_produk/" . $namafoto);
 
         $koneksi->query("UPDATE produk SET
         id_kategori = '$id_kategori',
         nama_produk = '$nama',
         harga_produk = '$harga',
         berat_produk = '$berat',
-        foto_produk = '$namafoto[0]',
+        foto_produk = '$namafoto',
         deskripsi_produk = '$deskripsi',
         stok_produk = '$stok'
         WHERE id_produk= '$id_produk'
@@ -136,12 +140,23 @@ if (isset($_POST['simpan'])) {
         ");
     }
 
-    $namafotoproduk = $_FILES['foto']['name'];
-    $lokasifotoproduk = $_FILES['foto']['tmp_name'];
+    $namaprodukfoto = $_FILES['foto']['name'];
+    $lokasiprodukfoto = $_FILES['foto']['tmp_name'];
 
-    move_uploaded_file($lokasifotoproduk[0], "../asset/foto_produk/" . $namafotoproduk[0]);
+    if (!empty($lokasiprodukfoto)) {
+        move_uploaded_file($lokasiprodukfoto, "../asset/foto_produk/" . $namaprodukfoto);
 
-    $koneksi->query("INSERT INTO produk_foto (id_produk,nama_produk_foto) VALUES ('$id_produk','$namafotoproduk[0]')");
+        $koneksi->query("UPDATE produk_foto SET
+        id_produk = '$id_produk',
+        nama_produk_foto = '$namafoto'
+        WHERE id_produk_foto= '$id_foto'
+        ");
+    } else {
+        $koneksi->query("UPDATE produk_foto SET
+        id_produk = '$id_produk'
+        WHERE id_produk= '$id_foto'
+        ");
+    }
 
     echo "<script>alert('data berhasil diedit');</script>";
     echo "<script>location='index.php?halaman=produk';</script>";

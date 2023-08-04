@@ -15,6 +15,10 @@ $ambil = $koneksi->query("SELECT * FROM produk_foto WHERE id_produk='$id_produk'
 while ($pecah = $ambil->fetch_assoc()) {
     $produk_foto[] = $pecah;
 }
+
+$produkfoto = [];
+$ambil = $koneksi->query("SELECT * FROM produk_foto WHERE id_produk='$id_produk'");
+$produkfoto = $ambil->fetch_assoc();
 ?>
 
 <div class="card shadow bg-white">
@@ -54,29 +58,44 @@ while ($pecah = $ambil->fetch_assoc()) {
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Deskripsi Produk :</label>
             <div class="col-sm-9">
-                <textarea disabled class="form-control" value="<?=$detailproduk['deskripsi_produk']?>"></textarea>
+                <textarea class="form-control" disabled><?=$detailproduk['deskripsi_produk']?></textarea>
             </div>
         </div>
 
         <div class="form-group row">
             <label for="Nama Kategori :" class="col-sm-3 col-form-label">Stok Produk :</label>
             <div class="col-sm-9">
-                <textarea disabled class="form-control" value="<?=$detailproduk['stok_produk']?>"></textarea>
+                <input disabled class="form-control" value="<?=$detailproduk['stok_produk']?>"></input>
             </div>
         </div>
 
 
     </div>
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-md-11">
+                <a class="btn btn-sm btn-primary"
+                    href="index.php?halaman=edit_produk&id_produk=<?=$detailproduk['id_produk']?>&id_foto=<?=$produkfoto['id_produk_foto']?>">Edit</a>
+            </div>
+            <div class="col-md-1 text-right">
+                <a href="index.php?halaman=produk" class="btn btn-sm btn-danger">Kembali</a>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
+
+
+
+
+<div class="row mt-4">
 
 
     <?php foreach ($produk_foto as $item): ?>
     <div class="col-4">
         <div class="card" style="width: 22rem;">
             <img src="../asset/foto_produk/<?=$item['nama_produk_foto']?>" alt="<?=$item['nama_produk_foto']?>"
-                class="img-thumbnai">
+                class="img-thumbnail">
         </div>
         <div class="card-footer text-center">
             <a href="index.php?halaman=hapus_foto&idfoto=<?=$item['id_produk_foto']?>&idproduk=<?=$item['id_produk']?>"
