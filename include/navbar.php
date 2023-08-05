@@ -10,7 +10,7 @@
 
     <div class="navbar-icon">
         <a href="#"><i class="fas fa-search"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        <a href="keranjang.php"><i class="fas fa-shopping-cart"></i></a>
         <a href="#"><i class="fas fa-user"></i></a>
         <a href="#" id="btn-menu"><i class="fas fa-bars"></i></a>
     </div>

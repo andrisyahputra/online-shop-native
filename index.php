@@ -120,7 +120,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                             <a href="#" class="btn btn-sm btn-success">
                                 <i class="fas fa-shopping-cart"></i> Keranjang
                             </a>
-                            <a href="#" class="btn btn-sm btn-success">
+                            <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>" class="btn btn-sm btn-success">
                                 <i class="fas fa-eye"></i> Details
                             </a>
 
