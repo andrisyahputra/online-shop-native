@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'koneksi/koneksi.php';
 
 $id_produk = $_GET['idproduk'];
@@ -36,7 +37,7 @@ while ($pecah = $ambil->fetch_assoc()) {
 
 <body>
     <!-- navbar start -->
-    <?php include 'include/navbar.php'?>
+    <?php include 'include/navbar.php' ?>
     <!-- navbar akhir -->
     <section class="page-produk">
         <div class="container">
@@ -48,7 +49,7 @@ while ($pecah = $ambil->fetch_assoc()) {
             <div class="row">
 
                 <div class="col-md-3">
-                    <?php include 'include/sidebar.php'?>
+                    <?php include 'include/sidebar.php' ?>
                 </div>
 
                 <div class="col-md-9 detail-produk">
@@ -58,12 +59,11 @@ while ($pecah = $ambil->fetch_assoc()) {
                             <div id="owl-nav"></div>
                             <div class="owl-carousel owl-theme">
 
-                                <?php foreach ($produkfoto as $key => $value): ?>
-                                <div class="item">
-                                    <img src="asset/foto_produk/<?=$value['nama_produk_foto']?>"
-                                        alt="<?=$value['nama_produk_foto']?>">
-                                </div>
-                                <?php endforeach;?>
+                                <?php foreach ($produkfoto as $key => $value) : ?>
+                                    <div class="item">
+                                        <img src="asset/foto_produk/<?= $value['nama_produk_foto'] ?>" alt="<?= $value['nama_produk_foto'] ?>">
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
                         </div>
 
@@ -71,25 +71,23 @@ while ($pecah = $ambil->fetch_assoc()) {
                             <form action="" method="post">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h3>Nama Produk</h3>
+                                        <h3><?= $produk['nama_produk'] ?></h3>
 
                                         <div class="form-group row">
 
                                             <label for="" class="col-md-3 col-form-label">Jumlah :</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="jumlah"
-                                                    placeholder="Masukkan Jumlah">
+                                                <input type="number" class="form-control" name="jumlah" value="1" min="1" max="<?= $produk['stok_produk'] ?>">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="" class="col-md-3 col-form-label">Stok :</label>
                                             <div class="col-md-9">
-                                                <input disabled type="number" class="form-control" name="stok"
-                                                    value="<?=$produk['stok_produk']?>">
+                                                <input disabled class="form-control" value="<?= $produk['stok_produk'] ?>">
                                             </div>
                                         </div>
-                                        <h5>Rp. <?=number_format($produk['harga_produk'])?></h5>
+                                        <h5>Rp. <?= number_format($produk['harga_produk']) ?></h5>
 
                                     </div>
                                     <div class="card-footer text-right">
@@ -104,7 +102,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                     <div class="card detail">
                         <div class="card-body">
                             <h2>Detail Produk</h2>
-                            <p><?=$produk['deskripsi_produk']?></p>
+                            <p><?= $produk['deskripsi_produk'] ?></p>
                         </div>
                     </div>
                 </div>
@@ -114,8 +112,19 @@ while ($pecah = $ambil->fetch_assoc()) {
         </div>
     </section>
 
+    <?php
+    if (isset($_POST['beli'])) {
+        $jumlah = $_POST['jumlah'];
 
-    <?php include 'include/footer.php'?>
+        $_SESSION['keranjang_belanja'][$id_produk] = $jumlah;
+
+        echo "<script>alert('produk berhasil masuk ke keranjang');</script>";
+        echo "<script>location='keranjang.php';</script>";
+    }
+    ?>
+
+
+    <?php include 'include/footer.php' ?>
 
 
     <!-- Bootstrap core JavaScript-->

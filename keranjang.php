@@ -2,6 +2,11 @@
 session_start();
 include 'koneksi/koneksi.php';
 
+if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja'])) {
+    echo "<script>alert('Keranjang Kosong, Silakan Belanja');</script>";
+    echo "<script>location='produk.php';</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +83,7 @@ include 'koneksi/koneksi.php';
                                         <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
                                         <td>Rp. <?= number_format($subtotal) ?></td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-danger">Hapus</a>
+                                            <a href="hapus_keranjang.php?idproduk=<?= $pecah['id_produk'] ?>" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
