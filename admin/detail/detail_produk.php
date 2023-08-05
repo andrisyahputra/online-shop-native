@@ -16,7 +16,6 @@ while ($pecah = $ambil->fetch_assoc()) {
     $produk_foto[] = $pecah;
 }
 
-$produkfoto = [];
 $ambil = $koneksi->query("SELECT * FROM produk_foto WHERE id_produk='$id_produk'");
 $produkfoto = $ambil->fetch_assoc();
 ?>

@@ -42,24 +42,7 @@ while ($pecah = $ambil->fetch_assoc()) {
             <div class="row">
 
                 <div class="col-md-3">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Kategori Produk</h4>
-                        </div>
-                        <div class="card-body">
-                            <ul class="nav navpills flex-column">
-                                <div class="nav-item">
-                                    <a href="#" class="nav-link">Baju</a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="#" class="nav-link">Celana</a>
-                                </div>
-                                <div class="nav-item">
-                                    <a href="#" class="nav-link">Sepatu</a>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
+                    <?php include 'include/sidebar.php'?>
                 </div>
 
                 <div class="col-md-9">
@@ -85,7 +68,8 @@ while ($pecah = $ambil->fetch_assoc()) {
                                     <a href="#" class="btn btn-sm btn-success">
                                         <i class="fas fa-shopping-cart"></i> Keranjang
                                     </a>
-                                    <a href="#" class="btn btn-sm btn-success">
+                                    <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>"
+                                        class="btn btn-sm btn-success">
                                         <i class="fas fa-eye"></i> Details
                                     </a>
 

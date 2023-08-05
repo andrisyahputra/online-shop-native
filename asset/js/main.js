@@ -13,7 +13,7 @@ document.addEventListener('click', function(e){
     };
 })
 
-// owl crausel
+// owl crausel produk
 $(document).ready(function(){
     $('.hero .owl-carousel').owlCarousel({
         autoplay: true,
@@ -23,6 +23,23 @@ $(document).ready(function(){
         inifinite: true,
         speed: 4000,
         autoplaySpeed: 2500,
+        slideToShow: 1,
+        items: 1,
+        navTex: [
+            "<i class='fas fa-angle-left'></i>",
+            "<i class='fas fa-angle-right'></i>"
+        ],
+        navContainer: "#owl-nav"
+    });
+})
+// detail produk owl crausel
+$(document).ready(function(){
+    $('.detail-produk .owl-carousel').owlCarousel({
+        nav: true,
+        loop: true,
+        dots: true,
+        inifinite: true,
+        speed: 4000,
         slideToShow: 1,
         items: 1,
         navTex: [
