@@ -11,7 +11,17 @@
     <div class="navbar-icon">
         <a href="#"><i class="fas fa-search"></i></a>
         <a href="keranjang.php"><i class="fas fa-shopping-cart"></i></a>
-        <a href="#"><i class="fas fa-user"></i></a>
+        <a href="#" id="btn-user"><i class="fas fa-user"></i></a>
         <a href="#" id="btn-menu"><i class="fas fa-bars"></i></a>
+    </div>
+
+    <div class="user">
+        <?php if (isset($_SESSION['pelanggan'])) : ?>
+            <li><a href="login.php">Profil</a></li>
+            <li><a href="logout.php">logout</a></li>
+        <?php else : ?>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="#">Daftar</a></li>
+        <?php endif; ?>
     </div>
 </nav>

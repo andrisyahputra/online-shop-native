@@ -5,6 +5,13 @@ document.querySelector("#btn-menu").onclick = () => {
   navbarMenu.classList.toggle("active");
 };
 
+// ketika tombol user di klik
+const userMenu = document.querySelector(".user");
+document.querySelector("#btn-user").onclick = (e) => {
+  userMenu.classList.toggle("active");
+  e.preventDefault();
+};
+
 // kemudian kita buat menu sidebar ketika di klik di luar menu navbar itu tetutup
 const btnMenu = document.querySelector("#btn-menu");
 document.addEventListener("click", function (e) {
