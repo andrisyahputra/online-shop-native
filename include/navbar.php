@@ -1,4 +1,4 @@
-<nav class="navbar">
+<nav class="navbar sticky-top">
     <a href="index.php" class="navbar-logo">Toko<span>Online</span></a>
     <div class="navbar-menu">
         <a href="index.php">Beranda</a>

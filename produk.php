@@ -76,7 +76,8 @@ if (isset($_GET['idkategori'])) {
                                 <div class="card-body content">
                                     <h5><?=$item['nama_produk']?></h5>
                                     <p>Rp. <?=number_format($item['harga_produk'])?></p>
-                                    <a href="#" class="btn btn-sm btn-success">
+                                    <a href="beli.php?idproduk=<?=$item['id_produk'];?>"
+                                        class="btn btn-sm btn-success">
                                         <i class="fas fa-shopping-cart"></i> Keranjang
                                     </a>
                                     <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>"
@@ -98,7 +99,8 @@ if (isset($_GET['idkategori'])) {
                                 <div class="card-body content">
                                     <h5><?=$item['nama_produk']?></h5>
                                     <p>Rp. <?=number_format($item['harga_produk'])?></p>
-                                    <a href="#" class="btn btn-sm btn-success">
+                                    <a href="beli.php?idproduk=<?=$item['id_produk'];?>"
+                                        class="btn btn-sm btn-success">
                                         <i class="fas fa-shopping-cart"></i> Keranjang
                                     </a>
                                     <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>"

@@ -28,11 +28,6 @@ body {
     align-items: center;
     padding: 1rem 7%;
     border-bottom: 1px solid #a9a9a9;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
 }
 
 .navbar .navbar-logo{
@@ -245,7 +240,7 @@ body {
 /* produk */
 
 .page-produk{
-    margin: 6rem 0;
+    margin: 2rem 0;
 }
 .breadcrumb {
     padding: 8px 15px;
@@ -348,6 +343,18 @@ body {
 
 
 /* detail produk */
+
+/* keranjang */
+.page-keranjang{
+    margin: 2rem 0;
+}
+.page-keranjang .card {
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+}
+.page-keranjang .box {
+    margin-bottom: 2rem;
+}
+/* keranjang akhir */
 
 
 
