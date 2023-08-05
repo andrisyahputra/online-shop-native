@@ -1,11 +1,21 @@
 <?php
 include 'koneksi/koneksi.php';
 
-$produk = [];
-$ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori LIMIT 9");
-while ($pecah = $ambil->fetch_assoc()) {
-    $produk[] = $pecah;
+if (isset($_GET['idkategori'])) {
+    $id_kategori = $_GET['idkategori'];
+    $ketegori_produk = [];
+    $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE produk.id_kategori = '$id_kategori' LIMIT 9");
+    while ($pecah = $ambil->fetch_assoc()) {
+        $ketegori_produk[] = $pecah;
+    }
+} else {
+    $produk = [];
+    $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori LIMIT 9");
+    while ($pecah = $ambil->fetch_assoc()) {
+        $produk[] = $pecah;
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -57,6 +67,29 @@ while ($pecah = $ambil->fetch_assoc()) {
                     </div>
 
                     <div class="row">
+                        <?php if (isset($_GET['idkategori'])): ?>
+                        <?php foreach ($ketegori_produk as $item): ?>
+                        <div class="col-md-4 card-produk">
+                            <div class="card">
+                                <img src="asset/foto_produk/<?=$item['foto_produk'];?>"
+                                    alt="<?=$item['foto_produk'];?>">
+                                <div class="card-body content">
+                                    <h5><?=$item['nama_produk']?></h5>
+                                    <p>Rp. <?=number_format($item['harga_produk'])?></p>
+                                    <a href="#" class="btn btn-sm btn-success">
+                                        <i class="fas fa-shopping-cart"></i> Keranjang
+                                    </a>
+                                    <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>"
+                                        class="btn btn-sm btn-success">
+                                        <i class="fas fa-eye"></i> Details
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <?php endforeach?>
+
+                        <?php else: ?>
                         <?php foreach ($produk as $key => $item): ?>
                         <div class="col-md-4 card-produk">
                             <div class="card">
@@ -77,6 +110,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                             </div>
                         </div>
                         <?php endforeach;?>
+                        <?php endif;?>
                     </div>
                 </div>
 
