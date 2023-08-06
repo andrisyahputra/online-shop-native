@@ -21,7 +21,7 @@
             <li><a href="logout.php">logout</a></li>
         <?php else : ?>
             <li><a href="login.php">Login</a></li>
-            <li><a href="#">Daftar</a></li>
+            <li><a href="daftar.php">Daftar</a></li>
         <?php endif; ?>
     </div>
 </nav>

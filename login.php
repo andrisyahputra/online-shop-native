@@ -9,7 +9,7 @@ include 'koneksi/koneksi.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Produk</title>
+    <title>Halaman Login</title>
     <!-- Custom fonts for this template-->
     <link href="asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -50,8 +50,7 @@ include 'koneksi/koneksi.php';
                                                 <i class="fas fa-envelope"></i>
                                             </label>
                                             <div class="col-md-10">
-                                                <input type="email" name="email" class="form-control"
-                                                    placeholder="Masukan Email...">
+                                                <input type="email" name="email" class="form-control" placeholder="Masukan Email...">
                                             </div>
                                         </div>
 
@@ -60,8 +59,7 @@ include 'koneksi/koneksi.php';
                                                 <i class="fas fa-lock"></i>
                                             </label>
                                             <div class="col-md-10">
-                                                <input type="password" name="password" class="form-control"
-                                                    placeholder="Masukan Password...">
+                                                <input type="password" name="password" class="form-control" placeholder="Masukan Password...">
                                             </div>
                                         </div>
 
