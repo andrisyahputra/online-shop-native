@@ -27,10 +27,6 @@ if ($err) {
     $array_response = json_decode($response, true);
     $data_provinsi = $array_response['rajaongkir']['results'];
 
-    // echo "<pre>";
-    // print_r($data_provinsi);
-    // echo "</pre>";
-
     echo '<option selected disabled>Pilih Provinsi</option>';
     foreach ($data_provinsi as $key => $value) {
         echo "<option value='" . $value['province_id'] . "' id_provinsi='" . $value["province_id"] . "'>";

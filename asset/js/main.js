@@ -66,4 +66,17 @@ $(document).ready(function () {
       $("select[name=provinsi]").html(data_provinsi);
     },
   });
+
+  $("select[name=provinsi]").on("change", function () {
+    var id_provinsi = $("option:selected", this).attr("id_provinsi");
+
+    $.ajax({
+      type: "post",
+      url: "data_distrik.php",
+      data: "id_provinsi=" + id_provinsi + "",
+      success: function (data_distrik) {
+        $("select[name=distrik]").html(data_distrik);
+      },
+    });
+  });
 });
