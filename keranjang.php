@@ -73,19 +73,21 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     $pecah = $ambil->fetch_assoc();
                                     $subtotal = $pecah['harga_produk'] * $jumlah;
                                 ?>
-                                    <tr class="">
-                                        <td width="25px"><?= $nomor++; ?></td>
-                                        <td>
-                                            <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>" alt="<?= $pecah['foto_produk'] ?>" width="50">
-                                        </td>
-                                        <td><?= $pecah['nama_produk']; ?></td>
-                                        <td><?= $jumlah ?></td>
-                                        <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
-                                        <td>Rp. <?= number_format($subtotal) ?></td>
-                                        <td>
-                                            <a href="hapus_keranjang.php?idproduk=<?= $pecah['id_produk'] ?>" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
-                                        </td>
-                                    </tr>
+                                <tr class="">
+                                    <td width="25px"><?= $nomor++; ?></td>
+                                    <td>
+                                        <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>"
+                                            alt="<?= $pecah['foto_produk'] ?>" width="50">
+                                    </td>
+                                    <td><?= $pecah['nama_produk']; ?></td>
+                                    <td><?= $jumlah ?></td>
+                                    <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
+                                    <td>Rp. <?= number_format($subtotal) ?></td>
+                                    <td>
+                                        <a href="hapus_keranjang.php?idproduk=<?= $pecah['id_produk'] ?>"
+                                            class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> Hapus</a>
+                                    </td>
+                                </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
@@ -98,7 +100,7 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                             <a href="produk.php" class="btn btn-info btn-sm">Kembali Belanja</a>
                         </div>
                         <div class="col-md-2 text-right">
-                            <a href="produk.php?" class="btn btn-success btn-sm">Checkout</a>
+                            <a href="checkout.php" class="btn btn-success btn-sm">Checkout</a>
                         </div>
                     </div>
                 </div>

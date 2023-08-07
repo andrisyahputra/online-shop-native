@@ -494,10 +494,12 @@ footer .footer-social a:hover {
     width: 30rem;
     height: 100vh;
     transition: 0.3;
+    transform: scaleX(0);
   }
 
   .navbar .navbar-menu.active {
     right: 0;
+    transform: scaleX(1);
   }
   .navbar .navbar-menu a {
     color: #191970;
