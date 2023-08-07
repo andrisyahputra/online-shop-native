@@ -53,31 +53,36 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     <th scope="col">Produk</th>
                                     <th scope="col">Jumlah</th>
                                     <th scope="col">Harga</th>
-                                    <th scope="col">Subtotal</th>
+                                    <th scope="col">Sub Harga</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 $nomor = 1;
+                                $subtotal = 0;
                                 foreach ($_SESSION['keranjang_belanja'] as $id_produk => $jumlah) :
                                     $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
                                     $pecah = $ambil->fetch_assoc();
-                                    $subtotal = $pecah['harga_produk'] * $jumlah;
+                                    $subharga = $pecah['harga_produk'] * $jumlah;
+                                    $totalbelanja = $subtotal += $subharga;
                                 ?>
-                                <tr class="">
-                                    <td width="25px"><?= $nomor++; ?></td>
-                                    <td>
-                                        <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>"
-                                            alt="<?= $pecah['foto_produk'] ?>" width="50">
-                                    </td>
-                                    <td><?= $pecah['nama_produk']; ?></td>
-                                    <td><?= $jumlah ?></td>
-                                    <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
-                                    <td>Rp. <?= number_format($subtotal) ?></td>
+                                    <tr class="">
+                                        <td width="25px"><?= $nomor++; ?></td>
+                                        <td>
+                                            <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>" alt="<?= $pecah['foto_produk'] ?>" width="50">
+                                        </td>
+                                        <td><?= $pecah['nama_produk']; ?></td>
+                                        <td><?= $jumlah ?></td>
+                                        <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
+                                        <td>Rp. <?= number_format($subharga) ?></td>
 
-                                </tr>
+                                    </tr>
                                 <?php endforeach; ?>
                             </tbody>
+                            <tfoot>
+                                <th colspan="5">Total Belanja</th>
+                                <th>Rp. <?= number_format($totalbelanja) ?></th>
+                            </tfoot>
                         </table>
                     </div>
 
@@ -89,14 +94,11 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <input type="text" class="form-control"
-                                value="<?= $_SESSION['pelanggan']['nama_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['nama_pelanggan'] ?>" readonly>
                             <br>
-                            <input type="text" class="form-control"
-                                value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>" readonly>
                             <br>
-                            <input type="text" class="form-control"
-                                value="<?= $_SESSION['pelanggan']['telepon_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['telepon_pelanggan'] ?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -104,10 +106,18 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                     <div class="card">
                         <div class="card-body">
                             <form action="" method="post">
+
+                                <div class="form-group row">
+                                    <label for="alamat" class="col-sm-3 col-form-label"> Alamat Lengkap:</label>
+                                    <div class="col-sm-9">
+                                        <textarea type="text" class="form-control" name="alamat" placeholder="Masukkan alamat" id="alamat" required></textarea>
+                                    </div>
+                                </div>
+
                                 <div class="form-group row">
                                     <label for="provinsi" class="col-sm-3 col-form-label"> Provinsi :</label>
                                     <div class="col-sm-9">
-                                        <select name="provinsi" id="provinsi" class="form-control">
+                                        <select name="provinsi" id="provinsi" class="form-control" required>
 
                                         </select>
                                     </div>
@@ -115,7 +125,7 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                 <div class="form-group row">
                                     <label for="distrik" class="col-sm-3 col-form-label"> Distrik :</label>
                                     <div class="col-sm-9">
-                                        <select name="distrik" id="distrik" class="form-control">
+                                        <select name="distrik" id="distrik" class="form-control" required>
 
                                         </select>
                                     </div>
@@ -123,7 +133,7 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                 <div class="form-group row">
                                     <label for="ekspedisi" class="col-sm-3 col-form-label"> Ekspedisi :</label>
                                     <div class="col-sm-9">
-                                        <select name="ekspedisi" id="ekspedisi" class="form-control">
+                                        <select name="ekspedisi" id="ekspedisi" class="form-control" required>
 
                                         </select>
                                     </div>
@@ -132,21 +142,25 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                 <div class="form-group row">
                                     <label for="paket" class="col-sm-3 col-form-label"> paket :</label>
                                     <div class="col-sm-9">
-                                        <select name="paket" id="paket" class="form-control">
+                                        <select name="paket" id="paket" class="form-control" required>
 
                                         </select>
                                     </div>
                                 </div>
 
-                                <input type="text" name="total_berat" class="form-control" value="120">
-                                <input type="text" name="nama_provinsi" class="form-control">
-                                <input type="text" name="nama_distrik" class="form-control">
-                                <input type="text" name="type_distrik" class="form-control">
-                                <input type="text" name="kode_pos" class="form-control">
-                                <input type="text" name="nama_ekspedisi" class="form-control">
-                                <input type="text" name="paket" class="form-control">
-                                <input type="text" name="ongkir" class="form-control">
-                                <input type="text" name="etd" class="form-control">
+                                <input type="text" name="total_berat" class="form-control" value="120" readonly hidden>
+                                <input type="text" name="nama_provinsi" class="form-control" readonly hidden>
+                                <input type="text" name="nama_distrik" class="form-control" readonly hidden>
+                                <input type="text" name="type_distrik" class="form-control" readonly hidden>
+                                <input type="text" name="kode_pos" class="form-control" readonly hidden>
+                                <input type="text" name="nama_ekspedisi" class="form-control" readonly hidden>
+                                <input type="text" name="paket" class="form-control" readonly hidden>
+                                <input type="text" name="ongkir" class="form-control" readonly hidden>
+                                <input type="text" name="etd" class="form-control" readonly hidden>
+
+                                <div class="text-right">
+                                    <button name="checkout" class="btn-success">Checkout</button>
+                                </div>
                             </form>
                         </div>
                     </div>
