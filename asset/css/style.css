@@ -89,6 +89,7 @@ body {
   text-align: center;
   border-radius: 5px 5px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+  transform: scaleX(0);
   transition: 0.3s;
 }
 .navbar .user li {
@@ -100,6 +101,7 @@ body {
   font-size: 1.2rem;
 }
 .navbar .user.active {
+  transform: scaleX(1);
   right: 20px;
 }
 
@@ -386,6 +388,32 @@ body {
   color: #01497c;
 }
 /* login akhir */
+
+/* profil mulai */
+.page-profil {
+  margin: 2rem 0;
+}
+.page-profil .card {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+}
+.page-profil .card-title h2 {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.page-profil .nav {
+  text-align: center;
+}
+.page-profil .nav a {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.page-profil .nav a:hover {
+  background-color: #eee;
+}
+/* profil akhir */
 
 /* footer */
 footer {

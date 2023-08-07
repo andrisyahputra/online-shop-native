@@ -5,9 +5,9 @@
             <div class="col-4">
                 <h3>Halaman Utama</h3>
                 <ul class="footer-menu">
-                    <li><a href="#">Beranda</a></li>
+                    <li><a href="index.php">Beranda</a></li>
                     <li><a href="#">Tentang Kami</a></li>
-                    <li><a href="#">Produk</a></li>
+                    <li><a href="produk.php">Produk</a></li>
                     <li><a href="#">Kontak</a></li>
                 </ul>
             </div>

@@ -51,7 +51,8 @@ include 'koneksi/koneksi.php';
                                                 Nama Lengkap :
                                             </label>
                                             <div class="col-md-8">
-                                                <input type="text" name="nama" class="form-control" placeholder="Masukan Nama..." required>
+                                                <input type="text" name="nama" class="form-control"
+                                                    placeholder="Masukan Nama..." required>
                                             </div>
                                         </div>
 
@@ -60,7 +61,8 @@ include 'koneksi/koneksi.php';
                                                 Email :
                                             </label>
                                             <div class="col-md-8">
-                                                <input type="email" name="email" class="form-control" placeholder="Masukan Email..." required>
+                                                <input type="email" name="email" class="form-control"
+                                                    placeholder="Masukan Email..." required>
                                             </div>
                                         </div>
 
@@ -69,7 +71,8 @@ include 'koneksi/koneksi.php';
                                                 Password :
                                             </label>
                                             <div class="col-md-8">
-                                                <input type="password" name="password" class="form-control" placeholder="Masukan Password..." required>
+                                                <input type="password" name="password" class="form-control"
+                                                    placeholder="Masukan Password..." required>
                                             </div>
                                         </div>
 
@@ -78,7 +81,8 @@ include 'koneksi/koneksi.php';
                                                 No WA :
                                             </label>
                                             <div class="col-md-8">
-                                                <input type="number" name="nowa" class="form-control" placeholder="Masukan No WA..." required>
+                                                <input type="number" name="nowa" class="form-control"
+                                                    placeholder="Masukan No WA..." required>
                                             </div>
                                         </div>
 
@@ -87,7 +91,8 @@ include 'koneksi/koneksi.php';
                                                 Alamat lengkap :
                                             </label>
                                             <div class="col-md-8">
-                                                <textarea name="alamat" class="form-control" rows="5" id="comment" name="text" placeholder="Masukan Alamat Lengkap..."></textarea>
+                                                <textarea name="alamat" class="form-control" rows="5" id="comment"
+                                                    name="text" placeholder="Masukan Alamat Lengkap..."></textarea>
                                             </div>
                                         </div>
 
@@ -141,9 +146,6 @@ include 'koneksi/koneksi.php';
             echo "<script>location='daftar.php';</script>";
         } else {
             $koneksi->query(
-                //     "INSERT INTO pelanggan(nama_pelanggan,email_pelanggan,password_pelanggan,telepon_pelanggan,alamat_pelanggan,foto_pelanggan)
-                // VALUES
-                // ('$nama','$email','$password','$alamat','$nama_foto')"
                 "INSERT INTO pelanggan (nama_pelanggan, email_pelanggan, password_pelanggan, telepon_pelanggan, alamat_pelanggan, foto_pelanggan) VALUES ('$nama','$email','$password','$nowa','$alamat','$nama_foto')"
             );
 

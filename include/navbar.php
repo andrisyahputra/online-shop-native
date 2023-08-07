@@ -17,7 +17,7 @@
 
     <div class="user">
         <?php if (isset($_SESSION['pelanggan'])) : ?>
-            <li><a href="login.php">Profil</a></li>
+            <li><a href="pelanggan/">Profil</a></li>
             <li><a href="logout.php">logout</a></li>
         <?php else : ?>
             <li><a href="login.php">Login</a></li>

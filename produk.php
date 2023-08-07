@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'koneksi/koneksi.php';
 
 if (isset($_GET['idkategori'])) {
@@ -40,7 +41,7 @@ if (isset($_GET['idkategori'])) {
 
 <body>
     <!-- navbar start -->
-    <?php include 'include/navbar.php'?>
+    <?php include 'include/navbar.php' ?>
     <!-- navbar akhir -->
     <section class="page-produk">
         <div class="container">
@@ -52,7 +53,7 @@ if (isset($_GET['idkategori'])) {
             <div class="row">
 
                 <div class="col-md-3">
-                    <?php include 'include/sidebar.php'?>
+                    <?php include 'include/sidebar.php' ?>
                 </div>
 
                 <div class="col-md-9">
@@ -67,52 +68,46 @@ if (isset($_GET['idkategori'])) {
                     </div>
 
                     <div class="row">
-                        <?php if (isset($_GET['idkategori'])): ?>
-                        <?php foreach ($ketegori_produk as $item): ?>
-                        <div class="col-md-4 card-produk">
-                            <div class="card">
-                                <img src="asset/foto_produk/<?=$item['foto_produk'];?>"
-                                    alt="<?=$item['foto_produk'];?>">
-                                <div class="card-body content">
-                                    <h5><?=$item['nama_produk']?></h5>
-                                    <p>Rp. <?=number_format($item['harga_produk'])?></p>
-                                    <a href="beli.php?idproduk=<?=$item['id_produk'];?>"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fas fa-shopping-cart"></i> Keranjang
-                                    </a>
-                                    <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fas fa-eye"></i> Details
-                                    </a>
+                        <?php if (isset($_GET['idkategori'])) : ?>
+                            <?php foreach ($ketegori_produk as $item) : ?>
+                                <div class="col-md-4 card-produk">
+                                    <div class="card">
+                                        <img src="asset/foto_produk/<?= $item['foto_produk']; ?>" alt="<?= $item['foto_produk']; ?>">
+                                        <div class="card-body content">
+                                            <h5><?= $item['nama_produk'] ?></h5>
+                                            <p>Rp. <?= number_format($item['harga_produk']) ?></p>
+                                            <a href="beli.php?idproduk=<?= $item['id_produk']; ?>" class="btn btn-sm btn-success">
+                                                <i class="fas fa-shopping-cart"></i> Keranjang
+                                            </a>
+                                            <a href="detail_produk.php?idproduk=<?= $item['id_produk'] ?>" class="btn btn-sm btn-success">
+                                                <i class="fas fa-eye"></i> Details
+                                            </a>
 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <?php endforeach?>
+                            <?php endforeach ?>
 
-                        <?php else: ?>
-                        <?php foreach ($produk as $key => $item): ?>
-                        <div class="col-md-4 card-produk">
-                            <div class="card">
-                                <img src="asset/foto_produk/<?=$item['foto_produk'];?>"
-                                    alt="<?=$item['foto_produk'];?>">
-                                <div class="card-body content">
-                                    <h5><?=$item['nama_produk']?></h5>
-                                    <p>Rp. <?=number_format($item['harga_produk'])?></p>
-                                    <a href="beli.php?idproduk=<?=$item['id_produk'];?>"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fas fa-shopping-cart"></i> Keranjang
-                                    </a>
-                                    <a href="detail_produk.php?idproduk=<?=$item['id_produk']?>"
-                                        class="btn btn-sm btn-success">
-                                        <i class="fas fa-eye"></i> Details
-                                    </a>
+                        <?php else : ?>
+                            <?php foreach ($produk as $key => $item) : ?>
+                                <div class="col-md-4 card-produk">
+                                    <div class="card">
+                                        <img src="asset/foto_produk/<?= $item['foto_produk']; ?>" alt="<?= $item['foto_produk']; ?>">
+                                        <div class="card-body content">
+                                            <h5><?= $item['nama_produk'] ?></h5>
+                                            <p>Rp. <?= number_format($item['harga_produk']) ?></p>
+                                            <a href="beli.php?idproduk=<?= $item['id_produk']; ?>" class="btn btn-sm btn-success">
+                                                <i class="fas fa-shopping-cart"></i> Keranjang
+                                            </a>
+                                            <a href="detail_produk.php?idproduk=<?= $item['id_produk'] ?>" class="btn btn-sm btn-success">
+                                                <i class="fas fa-eye"></i> Details
+                                            </a>
 
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <?php endforeach;?>
-                        <?php endif;?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </div>
                 </div>
 
@@ -121,7 +116,7 @@ if (isset($_GET['idkategori'])) {
     </section>
 
 
-    <?php include 'include/footer.php'?>
+    <?php include 'include/footer.php' ?>
 
 
     <!-- Bootstrap core JavaScript-->
