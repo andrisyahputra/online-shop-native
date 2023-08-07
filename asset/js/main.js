@@ -79,4 +79,56 @@ $(document).ready(function () {
       },
     });
   });
+
+  $.ajax({
+    type: "post",
+    url: "data_ekspedisi.php",
+    success: function (data_ekspedisi) {
+      $("select[name=ekspedisi]").html(data_ekspedisi);
+    },
+  });
+
+  $("select[name=ekspedisi]").on("change", function () {
+    var nama_eksepedisi = $("select[name=ekspedisi]").val();
+    var data_distrik = $("option:selected", "select[name=distrik]").attr(
+      "id_distrik"
+    );
+    var total_berat = $("input[name=total_berat]").val();
+
+    $.ajax({
+      type: "post",
+      url: "data_paket.php",
+      data:
+        "ekspedisi=" +
+        nama_eksepedisi +
+        "&distrik=" +
+        data_distrik +
+        "&berat=" +
+        total_berat +
+        "",
+      success: function (data_paket) {
+        $("select[name=paket]").html(data_paket);
+        $("input[name=nama_ekspedisi]").val(nama_eksepedisi);
+      },
+    });
+  });
+
+  $("select[name=distrik]").on("change", function () {
+    var prof = $("option:selected", this).attr("nama_provinsi");
+    var dist = $("option:selected", this).attr("nama_distrik");
+    var type = $("option:selected", this).attr("type_distrik");
+    var pos = $("option:selected", this).attr("kode_pos");
+    $("input[name=nama_provinsi]").val(prof);
+    $("input[name=nama_distrik]").val(dist);
+    $("input[name=type_distrik]").val(type);
+    $("input[name=kode_pos]").val(pos);
+  });
+  $("select[name=paket]").on("change", function () {
+    var paket = $("option:selected", this).attr("paket");
+    var ongkir = $("option:selected", this).attr("ongkir");
+    var etd = $("option:selected", this).attr("etd");
+    $("input[name=paket]").val(paket);
+    $("input[name=ongkir]").val(ongkir);
+    $("input[name=etd]").val(etd);
+  });
 });

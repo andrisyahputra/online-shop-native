@@ -121,9 +121,9 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="expedisi" class="col-sm-3 col-form-label"> Expedisi :</label>
+                                    <label for="ekspedisi" class="col-sm-3 col-form-label"> Ekspedisi :</label>
                                     <div class="col-sm-9">
-                                        <select name="expedisi" id="expedisi" class="form-control">
+                                        <select name="ekspedisi" id="ekspedisi" class="form-control">
 
                                         </select>
                                     </div>
@@ -137,6 +137,16 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                         </select>
                                     </div>
                                 </div>
+
+                                <input type="text" name="total_berat" class="form-control" value="120">
+                                <input type="text" name="nama_provinsi" class="form-control">
+                                <input type="text" name="nama_distrik" class="form-control">
+                                <input type="text" name="type_distrik" class="form-control">
+                                <input type="text" name="kode_pos" class="form-control">
+                                <input type="text" name="nama_ekspedisi" class="form-control">
+                                <input type="text" name="paket" class="form-control">
+                                <input type="text" name="ongkir" class="form-control">
+                                <input type="text" name="etd" class="form-control">
                             </form>
                         </div>
                     </div>
