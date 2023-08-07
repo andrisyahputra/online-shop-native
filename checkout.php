@@ -64,17 +64,18 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     $pecah = $ambil->fetch_assoc();
                                     $subtotal = $pecah['harga_produk'] * $jumlah;
                                 ?>
-                                    <tr class="">
-                                        <td width="25px"><?= $nomor++; ?></td>
-                                        <td>
-                                            <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>" alt="<?= $pecah['foto_produk'] ?>" width="50">
-                                        </td>
-                                        <td><?= $pecah['nama_produk']; ?></td>
-                                        <td><?= $jumlah ?></td>
-                                        <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
-                                        <td>Rp. <?= number_format($subtotal) ?></td>
+                                <tr class="">
+                                    <td width="25px"><?= $nomor++; ?></td>
+                                    <td>
+                                        <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>"
+                                            alt="<?= $pecah['foto_produk'] ?>" width="50">
+                                    </td>
+                                    <td><?= $pecah['nama_produk']; ?></td>
+                                    <td><?= $jumlah ?></td>
+                                    <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
+                                    <td>Rp. <?= number_format($subtotal) ?></td>
 
-                                    </tr>
+                                </tr>
                                 <?php endforeach; ?>
                             </tbody>
                         </table>
@@ -88,11 +89,14 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['nama_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control"
+                                value="<?= $_SESSION['pelanggan']['nama_pelanggan'] ?>" readonly>
                             <br>
-                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control"
+                                value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>" readonly>
                             <br>
-                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['telepon_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control"
+                                value="<?= $_SESSION['pelanggan']['telepon_pelanggan'] ?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -100,40 +104,38 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                     <div class="card">
                         <div class="card-body">
                             <form action="" method="post">
-                                <label for="provinsi" class="col-sm-3 col-form-label"> Provinsi :</label>
-                                <div class="col-sm-9">
-                                    <select name="nama_provinsi" id="provinsi" class="form-control">
-                                        <option value="">Pilih Provinsi</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
+                                <div class="form-group row">
+                                    <label for="provinsi" class="col-sm-3 col-form-label"> Provinsi :</label>
+                                    <div class="col-sm-9">
+                                        <select name="provinsi" id="provinsi" class="form-control">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="distrik" class="col-sm-3 col-form-label"> Distrik :</label>
+                                    <div class="col-sm-9">
+                                        <select name="distrik" id="distrik" class="form-control">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="expedisi" class="col-sm-3 col-form-label"> Expedisi :</label>
+                                    <div class="col-sm-9">
+                                        <select name="expedisi" id="expedisi" class="form-control">
+
+                                        </select>
+                                    </div>
                                 </div>
 
-                                <label for="distrik" class="col-sm-3 col-form-label"> Distrik :</label>
-                                <div class="col-sm-9">
-                                    <select name="nama_distrik" id="distrik" class="form-control">
-                                        <option value="">Pilih Distrik</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
+                                <div class="form-group row">
+                                    <label for="paket" class="col-sm-3 col-form-label"> paket :</label>
+                                    <div class="col-sm-9">
+                                        <select name="paket" id="paket" class="form-control">
 
-                                <label for="expedisi" class="col-sm-3 col-form-label"> Expedisi :</label>
-                                <div class="col-sm-9">
-                                    <select name="nama_expedisi" id="expedisi" class="form-control">
-                                        <option value="">Pilih Expedisi</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
-                                </div>
-
-                                <label for="paket" class="col-sm-3 col-form-label"> paket :</label>
-                                <div class="col-sm-9">
-                                    <select name="nama_paket" id="paket" class="form-control">
-                                        <option value="">Pilih Paket</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                    </select>
+                                        </select>
+                                    </div>
                                 </div>
                             </form>
                         </div>
