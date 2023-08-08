@@ -2,12 +2,17 @@
 session_start();
 include 'koneksi/koneksi.php';
 
-$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
-
-if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja'])) {
-    echo "<script>alert('Keranjang Kosong, Silakan Belanja');</script>";
-    echo "<script>location='produk.php';</script>";
+// if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja'])) {
+//     echo "<script>alert('Keranjang Kosong, Silakan Belanja');</script>";
+//     echo "<script>location='produk.php';</script>";
+// }
+if (!isset($_SESSION['pelanggan'])) {
+    echo "<script>alert('Silakan Login');</script>";
+    echo "<script>location='login.php';</script>";
+    exit();
 }
+
+$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
 
 ?>
 <!DOCTYPE html>
@@ -69,17 +74,18 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     $subberat = $pecah['berat_produk'] * $jumlah;
                                     $totalbelanja = $subtotal += $subharga;
                                 ?>
-                                    <tr class="">
-                                        <td width="25px"><?= $nomor++; ?></td>
-                                        <td>
-                                            <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>" alt="<?= $pecah['foto_produk'] ?>" width="50">
-                                        </td>
-                                        <td><?= $pecah['nama_produk']; ?></td>
-                                        <td><?= $jumlah ?></td>
-                                        <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
-                                        <td>Rp. <?= number_format($subharga) ?></td>
+                                <tr class="">
+                                    <td width="25px"><?= $nomor++; ?></td>
+                                    <td>
+                                        <img src="./asset/foto_produk/<?= $pecah['foto_produk'] ?>"
+                                            alt="<?= $pecah['foto_produk'] ?>" width="50">
+                                    </td>
+                                    <td><?= $pecah['nama_produk']; ?></td>
+                                    <td><?= $jumlah ?></td>
+                                    <td>Rp. <?= number_format($pecah['harga_produk']) ?></td>
+                                    <td>Rp. <?= number_format($subharga) ?></td>
 
-                                    </tr>
+                                </tr>
                                 <?php endforeach; ?>
                             </tbody>
                             <tfoot>
@@ -97,11 +103,14 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
-                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['nama_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control"
+                                value="<?= $_SESSION['pelanggan']['nama_pelanggan'] ?>" readonly>
                             <br>
-                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control"
+                                value="<?= $_SESSION['pelanggan']['email_pelanggan'] ?>" readonly>
                             <br>
-                            <input type="text" class="form-control" value="<?= $_SESSION['pelanggan']['telepon_pelanggan'] ?>" readonly>
+                            <input type="text" class="form-control"
+                                value="<?= $_SESSION['pelanggan']['telepon_pelanggan'] ?>" readonly>
                         </div>
                     </div>
                 </div>
@@ -113,7 +122,8 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                 <div class="form-group row">
                                     <label for="alamat" class="col-sm-3 col-form-label"> Alamat Lengkap:</label>
                                     <div class="col-sm-9">
-                                        <textarea type="text" class="form-control" name="alamat" placeholder="Masukkan alamat" id="alamat" required></textarea>
+                                        <textarea type="text" class="form-control" name="alamat"
+                                            placeholder="Masukkan alamat" id="alamat" required></textarea>
                                     </div>
                                 </div>
 
@@ -151,7 +161,8 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     </div>
                                 </div>
 
-                                <input type="text" name="total_berat" class="form-control" value="<?= $subberat ?>" readonly hidden>
+                                <input type="text" name="total_berat" class="form-control" value="<?= $subberat ?>"
+                                    readonly hidden>
                                 <input type="text" name="total_berat" class="form-control" value="120" readonly hidden>
                                 <input type="text" name="nama_provinsi" class="form-control" readonly hidden>
                                 <input type="text" name="nama_distrik" class="form-control" readonly hidden>

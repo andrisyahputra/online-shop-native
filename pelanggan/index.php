@@ -2,6 +2,12 @@
 session_start();
 include '../koneksi/koneksi.php';
 
+if (!isset($_SESSION['pelanggan']['id_pelanggan'])) {
+    echo "<script>alert('Silakan Login');</script>";
+    echo "<script>location='../login.php';</script>";
+    exit();
+}
+
 $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
 $ambil = $koneksi->query("SELECT * FROM pelanggan WHERE id_pelanggan='$id_pelanggan'");
 
@@ -101,6 +107,8 @@ $pecah = $ambil->fetch_assoc();
                             if (isset($_GET['page'])) {
                                 if ($_GET['page'] == "pesanan") {
                                     include 'pesanan.php';
+                                } elseif ($_GET['page'] == "detail_pembelian") {
+                                    include 'detail_pembelian.php';
                                 }
                             } else {
                                 include 'home.php';
