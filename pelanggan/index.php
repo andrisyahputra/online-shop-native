@@ -95,6 +95,9 @@ $pecah = $ambil->fetch_assoc();
                                 <li class="nav-item">
                                     <a href="index.php?page=riwayat" class="nav-link">Riwayat</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="index.php?page=setting" class="nav-link">Setting</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -109,6 +112,8 @@ $pecah = $ambil->fetch_assoc();
                                     include 'pesanan.php';
                                 } elseif ($_GET['page'] == "detail_pembelian") {
                                     include 'detail_pembelian.php';
+                                } elseif ($_GET['page'] == "setting") {
+                                    include 'setting.php';
                                 }
                             } else {
                                 include 'home.php';
