@@ -311,10 +311,6 @@ body {
   font-weight: 700;
 }
 
-.page-produk .box,
-.page-produk .card-produk {
-  margin-bottom: 2rem;
-}
 .page-produk .card-produk {
   text-align: center;
   font-weight: 600;
@@ -437,7 +433,6 @@ footer {
 
 footer h3 {
   margin-bottom: 1rem;
-  margin-left: 3rem;
 }
 footer .footer-menu li {
   list-style: none;
@@ -567,6 +562,9 @@ footer .footer-social a:hover {
   }
 
   /* detail-produk */
+  .detail-produk {
+    margin-top: 2rem;
+  }
   .produk .card {
     position: relative;
     max-width: 350px;
@@ -574,7 +572,7 @@ footer .footer-social a:hover {
     height: auto;
     margin: 45px;
     margin-bottom: 20px;
-    overflow: hidden;
+    /* overflow: hidden; */
   }
   .produk .card img {
     max-width: 100%;
@@ -587,14 +585,16 @@ footer .footer-social a:hover {
   .page-produk .box {
     margin-top: 20px;
   }
-  .page-produk .card-produk {
-    margin-bottom: 10px;
-  }
 
   /* keranjang */
   .page-keranjang .text-right {
     display: flex;
     margin-top: 10px;
+  }
+
+  /* profil */
+  .page-profil .card {
+    margin-top: 2rem;
   }
 }
 /* untuk hp */
