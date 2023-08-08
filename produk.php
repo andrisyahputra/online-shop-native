@@ -5,13 +5,13 @@ include 'koneksi/koneksi.php';
 if (isset($_GET['idkategori'])) {
     $id_kategori = $_GET['idkategori'];
     $ketegori_produk = [];
-    $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE produk.id_kategori = '$id_kategori' LIMIT 9");
+    $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori WHERE produk.id_kategori = '$id_kategori'");
     while ($pecah = $ambil->fetch_assoc()) {
         $ketegori_produk[] = $pecah;
     }
 } else {
     $produk = [];
-    $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori LIMIT 9");
+    $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori");
     while ($pecah = $ambil->fetch_assoc()) {
         $produk[] = $pecah;
     }
@@ -112,6 +112,39 @@ if (isset($_GET['idkategori'])) {
                 </div>
 
             </div>
+
+            <div class="pagination justify-content-center">
+
+                <li class="page-item prev disabled">
+                    <a href="#" class="page-link">Prev</a>
+                </li>
+
+                <li class="page-item halaman">
+                    <a href="#" class="page-link active">1</a>
+                </li>
+
+                <li class="page-item dots">
+                    <a href="#" class="page-link">...</a>
+                </li>
+
+                <li class="page-item halaman">
+                    <a href="#" class="page-link">5</a>
+                </li>
+
+                <li class="page-item halaman">
+                    <a href="#" class="page-link">6</a>
+                </li>
+
+                <li class="page-item dots">
+                    <a href="#" class="page-link">...</a>
+                </li>
+
+                <li class="page-item next">
+                    <a href="#" class="page-link">Next</a>
+                </li>
+
+            </div>
+
         </div>
     </section>
 

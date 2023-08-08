@@ -132,3 +132,116 @@ $(document).ready(function () {
     $("input[name=etd]").val(etd);
   });
 });
+
+// pagination mulai
+function getPageList(totalPage, page, maxLength) {
+  function rage(start, end) {
+    return Array.from(Array(end - start + 1), (_, i) => i + start);
+  }
+  var sideWidth = maxLength < 9 ? 1 : 2;
+  var leftWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+  var rightWidth = (maxLength - sideWidth * 2 - 3) >> 1;
+  if (totalPage <= maxLength) {
+    return rage(1, totalPage);
+  }
+  if (page <= maxLength - sideWidth - 1 - rightWidth) {
+    return rage(1, maxLength - sideWidth - 1).concat(
+      0,
+      rage(totalPage - sideWidth + 1, totalPage)
+    );
+  }
+
+  if (page >= totalPage - sideWidth - 1 - rightWidth) {
+    return rage(1, sideWidth).concat(
+      0,
+      rage(totalPage - sideWidth - 1 - rightWidth - leftWidth, totalPage)
+    );
+  }
+
+  return rage(1, sideWidth).concat(
+    0,
+    rage(page - leftWidth, page + rightWidth),
+    0,
+    rage(totalPage - sideWidth + 1, totalPage)
+  );
+}
+
+$(function () {
+  var numberOfItems = $(".card-produk .card").length;
+  var limitPerPage = 6; //jumlah produk didalam perhalaman produk
+  var totalPage = Math.ceil(numberOfItems / limitPerPage);
+  var paginationSize = 5; //jumlah angka didalm pagenation
+  var currentPage;
+  function showPage(whichPage) {
+    if (whichPage < 1 || whichPage > totalPage) return false;
+    currentPage = whichPage;
+
+    $(".card-produk .card")
+      .hide()
+      .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
+      .show();
+
+    $(".pagination li").slice(1, -1).remove();
+
+    getPageList(totalPage, currentPage, paginationSize).forEach((item) => {
+      $("<li>")
+        .addClass("page-item")
+        .addClass(item ? "halaman" : "dots")
+        .toggleClass("active", item === currentPage)
+        .append(
+          $("<a>")
+            .addClass("page-link")
+            .attr({ href: "javascript:void(0)" })
+            .text(item || "...")
+        )
+        .insertBefore(".next");
+    });
+
+    $(".prev").toggleClass("disabled", currentPage === 1);
+    $(".next").toggleClass("disabled", currentPage === totalPage);
+    return true;
+  }
+
+  $(".pagination").append(
+    $("<li>")
+      .addClass("page-item")
+      .addClass("prev")
+      .append(
+        $("<a>")
+          .addClass("page-link")
+          .attr({
+            href: "javascript:void(0)",
+          })
+          .text("prev")
+      ),
+
+    $("<li>")
+      .addClass("page-item")
+      .addClass("next")
+      .append(
+        $("<a>")
+          .addClass("page-link")
+          .attr({
+            href: "javascript:void(0)",
+          })
+          .text("next")
+      )
+  );
+
+  $(".card-produk").show();
+  showPage(1);
+
+  $(document).on("click", ".pagination li.halaman:not(.active)", function () {
+    return showPage(+$(this).text());
+  });
+
+  $(".next").on("click", function () {
+    return showPage(currentPage + 1);
+  });
+
+  $(".prev").on("click", function () {
+    return showPage(currentPage - 1);
+  });
+});
+
+// pagination akhir
