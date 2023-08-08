@@ -29,7 +29,8 @@ $pecah = $ambil->fetch_assoc();
         <div class="form-group row">
             <label for="password" class="col-sm-3 col-form-label">Password :</label>
             <div class="col-sm-9">
-                <input type="password" class="form-control" name="password" value="<?= $pecah['password_pelanggan'] ?>" id="password">
+                <input type="password" class="form-control" value="<?= $pecah['password_pelanggan'] ?>" id="password" readonly>
+                <a href="index.php?page=ubah_password" class="btn btn-sm btn-primary mt-3">Update Password</a>
             </div>
         </div>
 
@@ -68,7 +69,6 @@ $pecah = $ambil->fetch_assoc();
 <?php
 if (isset($_POST['simpan'])) {
     $nama = $_POST['nama'];
-    $pass = sha1($_POST['password']);
     $telepon = $_POST['telepon'];
     $alamat = $_POST['alamat'];
 
@@ -80,7 +80,6 @@ if (isset($_POST['simpan'])) {
     if (!empty($lokasi_foto)) {
         $koneksi->query("UPDATE pelanggan SET 
             nama_pelanggan = '$nama',
-            password_pelanggan = '$pass',
             telepon_pelanggan = '$telepon',
             alamat_pelanggan = '$alamat',
             foto_pelanggan = '$nama_foto'
@@ -91,7 +90,6 @@ if (isset($_POST['simpan'])) {
         // jika foto tidak di ubah
         $koneksi->query("UPDATE pelanggan SET 
             nama_pelanggan = '$nama',
-            password_pelanggan = '$pass',
             telepon_pelanggan = '$telepon',
             alamat_pelanggan = '$alamat'
             WHERE

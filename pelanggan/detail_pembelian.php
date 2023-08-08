@@ -83,7 +83,8 @@ while ($pecah = $ambil->fetch_assoc()) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($pp as $key => $item) : ?>['jumlah']; ?>
+                    <?php foreach ($pp as $key => $item) : ?>
+
                     <tr>
                         <td><?= $key + 1 ?></td>
                         <td><?= $item['nama'] ?></td>
@@ -92,7 +93,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                         <td><?= $item['subberat'] ?> Gr.</td>
                         <td>Rp. <?= number_format($item['subharga']); ?></td>
                     </tr>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

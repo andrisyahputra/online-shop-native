@@ -94,7 +94,11 @@ include 'koneksi/koneksi.php';
         if ($akun == 1) {
             $_SESSION['pelanggan'] = $ambil->fetch_assoc();
             echo "<script>alert('Login Sukses');</script>";
-            echo "<script>location='index.php';</script>";
+            if (isset($_SESSION['keranjang_belanja']) or !empty($_SESSION['keranjang_belanja'])) {
+                echo "<script>location='keranjang.php';</script>";
+            } else {
+                echo "<script>location='pelanggan/index.php';</script>";
+            }
         } else {
             echo "<script>alert('Login Gagal');</script>";
             echo "<script>location='login.php';</script>";

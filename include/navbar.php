@@ -10,18 +10,29 @@
 
     <div class="navbar-icon">
         <a href="#"><i class="fas fa-search"></i></a>
-        <a href="keranjang.php"><i class="fas fa-shopping-cart"></i></a>
+        <?php if (empty($_SESSION['keranjang_belanja'])) : ?>
+        <a href="keranjang.php"><i class="fas fa-shopping-cart">(0)</i></a>
+        <?php else : ?>
+        <?php
+                        $item = 0;
+                        foreach ($_SESSION['keranjang_belanja'] as $id_produk => $jumlah) {
+                            $item++;
+                        }
+                        ?>
+        <a href="keranjang.php"><i class="fas fa-shopping-cart">(<?= $item; ?>)</i></a>
+        <?php endif; ?>
+
         <a href="#" id="btn-user"><i class="fas fa-user"></i></a>
         <a href="#" id="btn-menu"><i class="fas fa-bars"></i></a>
     </div>
 
     <div class="user">
         <?php if (isset($_SESSION['pelanggan'])) : ?>
-            <li><a href="pelanggan/">Profil</a></li>
-            <li><a href="logout.php">logout</a></li>
+        <li><a href="pelanggan/">Profil</a></li>
+        <li><a href="logout.php">logout</a></li>
         <?php else : ?>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="daftar.php">Daftar</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="daftar.php">Daftar</a></li>
         <?php endif; ?>
     </div>
 </nav>

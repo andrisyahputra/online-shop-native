@@ -1,2 +1,2 @@
 bug
-ketika checkout belum login
+ketika ke profile ada console log

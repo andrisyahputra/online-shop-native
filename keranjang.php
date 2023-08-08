@@ -44,16 +44,25 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
             <div class="card box">
                 <div class="card-body">
                     <h2>Keranjang Belanja</h2>
-                    <p>
-                        Anda memiliki (4) items didalam keranjang belanja
-                    </p>
+                    <?php if (empty($_SESSION['keranjang_belanja'])) : ?>
+                    <p>Anda memiliki (0) items didalam keranjang belanja</p>
+                    <?php else : ?>
+                    <?php
+                        $item = 0;
+                        foreach ($_SESSION['keranjang_belanja'] as $id_produk => $jumlah) {
+                            $item++;
+                        }
+                        ?>
+                    <p>Anda memiliki (<?= $item; ?>) items didalam keranjang belanja</p>
+                    <?php endif; ?>
+
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-hover table-striped" id="tables">
+                        <table class="table table-hover table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>

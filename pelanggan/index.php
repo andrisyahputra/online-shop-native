@@ -54,7 +54,17 @@ $pecah = $ambil->fetch_assoc();
 
         <div class="navbar-icon">
             <a href="#"><i class="fas fa-search"></i></a>
-            <a href="../keranjang.php"><i class="fas fa-shopping-cart"></i></a>
+            <?php if (empty($_SESSION['keranjang_belanja'])) : ?>
+            <a href="../keranjang.php"><i class="fas fa-shopping-cart">(0)</i></a>
+            <?php else : ?>
+            <?php
+                $item = 0;
+                foreach ($_SESSION['keranjang_belanja'] as $id_produk => $jumlah) {
+                    $item++;
+                }
+                ?>
+            <a href="../keranjang.php"><i class="fas fa-shopping-cart">(<?= $item; ?>)</i></a>
+            <?php endif; ?>
             <a href="#" id="btn-user"><i class="fas fa-user"></i></a>
             <a href="#" id="btn-menu"><i class="fas fa-bars"></i></a>
         </div>
@@ -78,7 +88,9 @@ $pecah = $ambil->fetch_assoc();
                     <div class="card">
                         <div class="card-header">
                             <div class="img">
-                                <img src="../asset/foto_pelanggan/<?= $pecah['foto_pelanggan'] ?>" alt="/<?= $pecah['foto_pelanggan'] ?>" class="rounded-circle rounded mx-auto d-block" width="150">
+                                <img src="../asset/foto_pelanggan/<?= $pecah['foto_pelanggan'] ?>"
+                                    alt="/<?= $pecah['foto_pelanggan'] ?>"
+                                    class="rounded-circle rounded mx-auto d-block" width="150">
                             </div>
                             <div class="card-title">
                                 <h2><?= $pecah['nama_pelanggan'] ?></h2>
@@ -114,6 +126,8 @@ $pecah = $ambil->fetch_assoc();
                                     include 'detail_pembelian.php';
                                 } elseif ($_GET['page'] == "setting") {
                                     include 'setting.php';
+                                }elseif ($_GET['page'] == "ubah_password") {
+                                    include 'ubah_password.php';
                                 }
                             } else {
                                 include 'home.php';
