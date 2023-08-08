@@ -50,7 +50,7 @@ if (isset($_GET['idkategori'])) {
                 <li>Produk</li>
             </ul>
 
-            <div class="row">
+            <div class="row produk">
 
                 <div class="col-md-3">
                     <?php include 'include/sidebar.php' ?>

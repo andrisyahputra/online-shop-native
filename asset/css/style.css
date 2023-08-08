@@ -15,8 +15,18 @@
   src: url(../font/Poppins-Black.ttf);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #ccc;
+  font-family: font2;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #f0f0f0;
 }
 
 /* navbar */
@@ -119,43 +129,10 @@ body {
   background-position: center;
 }
 
-.hero .content {
-  position: absolute;
-  top: 35%;
-  padding: 1.4rem 7%;
-  max-width: 60rem;
-  color: #fff;
-}
-
-.hero .content h1 {
-  font-size: 5rem;
-  color: #fff;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.3);
-  font-family: font3;
-}
-
-.hero .content h1 span {
-  color: #800000;
-}
-.hero .content p {
-  font-size: 1.6rem;
-  margin-top: 1rem;
-  font-family: font2;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-  color: #fff;
-}
-
-.hero .content .btn {
-  padding: 1rem 3rem;
-  font-size: 1.4rem;
-  font-family: font2;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-}
-
 .hero #owl-nav .owl-prev,
 .hero #owl-nav .owl-next {
   position: absolute;
-  top: 45%;
+  top: 40%;
   z-index: 10;
   border: none;
   background-color: #01497c5e;
@@ -181,27 +158,47 @@ body {
   transition: 0.3s;
 }
 
+.hero .content {
+  position: absolute;
+  top: 20%;
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+  color: #fff;
+}
+
+.hero .content h1 {
+  font-size: 4rem;
+  color: #fff;
+  font-family: font3;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero .content h1 span {
+  color: #800000;
+}
+.hero .content p {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  font-family: font2;
+  color: #fff;
+  text-align: justify;
+  max-width: 70%;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero .content .btn {
+  padding: 0.5rem 2rem;
+  font-size: 1.2rem;
+  font-family: font2;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
 /* about */
 .about {
-  padding: 0 0 50px;
-  margin-top: 5rem;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-  color: #fff;
-}
-
-.judul {
-  font-family: font3;
-  font-size: 2.5rem;
-  padding-bottom: 0.5rem;
-  margin-bottom: 2rem;
-  border-bottom: 0.3rem solid #800000;
-  border-bottom-right-radius: 10px;
-  text-shadow: 1px 1px 3px rgba(1, 1, 3, 0.5);
-  color: #fff;
-}
-
-.judul span {
-  color: #800000;
+  margin-top: 8rem;
+  font-family: font2;
+  background-color: #fff;
+  text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .about .about-img {
@@ -210,25 +207,40 @@ body {
 
 .about .about-img img {
   width: 100%;
+  height: 350px;
 }
 
-.about .content h3 {
-  font-size: 2rem;
+.about .content {
+  padding: 1rem 1.5rem;
 }
 .about .content p {
-  margin-bottom: 0.8rem;
-  font-size: 1.4rem;
-  font-weight: 100;
-  line-height: 1.6rem;
+  text-align: justify;
 }
 
 .produk {
-  padding: 0 0 50px;
   margin-top: 50px;
 }
-
+.produk-box {
+  background-color: #fff;
+  margin: 0 0 30px;
+  border-radius: solid #e6e6e6;
+  padding: 20px;
+  margin-top: 50px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+.produk-box h2 {
+  font-family: font3;
+  font-size: 35px;
+  color: #aaa;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+.produk-box h2 span {
+  color: #800000;
+}
 .produk .card {
-  box-shadow: 0 5px 25px rgba(1 1 0 /20%);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
   margin-top: 1.5rem;
 }
 .produk .content {
@@ -516,23 +528,73 @@ footer .footer-social a:hover {
     transform: scaleX(0.2);
   }
   /* hero section */
+  .hero #owl-nav .owl-prev,
+  .hero #owl-nav .owl-next {
+    top: 35%;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+
   .hero .content {
-    padding: 1.4rem 14%;
+    position: absolute;
+    top: 10%;
+    padding: 1.5rem 9%;
+    color: #fff;
   }
   .hero .content h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
   .hero .content p {
-    font-size: 0.8rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    max-width: 60%;
+    text-align: justify;
+    font-weight: 600;
   }
 
   .hero .content .btn {
-    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: font2;
   }
+
+  /* detail produk */
   #owl-nav .owl-prev,
   #owl-nav .owl-next {
-    padding: 10px 25px;
+    padding: 10px 10px;
     font-size: 15px;
+  }
+
+  /* detail-produk */
+  .produk .card {
+    position: relative;
+    max-width: 350px;
+    width: 350px;
+    height: auto;
+    margin: 45px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .produk .card img {
+    max-width: 100%;
+    height: auto;
+  }
+  .produk-box .card h2 {
+    font-size: 30px;
+  }
+  /* page produk */
+  .page-produk .box {
+    margin-top: 20px;
+  }
+  .page-produk .card-produk {
+    margin-bottom: 10px;
+  }
+
+  /* keranjang */
+  .page-keranjang .text-right {
+    display: flex;
+    margin-top: 10px;
   }
 }
 /* untuk hp */

@@ -39,57 +39,60 @@ while ($pecah = $ambil->fetch_assoc()) {
     <?php include 'include/navbar.php' ?>
     <!-- navbar akhir -->
 
-    <!-- Hero Section Mulai-->
-    <section class="hero">
-        <div id="owl-nav"> </div>
-        <div class="owl-carousel owl-theme">
 
-            <div class="item">
-                <img src="asset/foto/slider/slider1.jpg" alt="slider1.jpg">
-                <main class="content">
-                    <h1>Toko <span>Online</span></h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
-                        odio voluptates.
-                    </p>
-                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
-                </main>
-            </div>
-
-            <div class="item">
-                <img src="asset/foto/slider/slider2.jpg" alt="slider2.jpg">
-                <main class="content">
-                    <h1>Toko <span>Online</span></h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
-                        odio voluptates.
-                    </p>
-                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
-                </main>
-            </div>
-
-            <div class="item">
-                <img src="asset/foto/slider/slider3.jpg" alt="slider3.jpg">
-                <main class="content">
-                    <h1>Toko <span>Online</span></h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
-                        odio voluptates.
-                    </p>
-                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
-                </main>
-            </div>
-
-        </div>
-    </section>
-    <!-- Hero Section Akhir -->
 
 
 
     <!-- about tentangkami mulai-->
     <div class="container">
+
+        <!-- Hero Section Mulai-->
+        <section class="hero">
+            <div id="owl-nav"> </div>
+            <div class="owl-carousel owl-theme">
+
+                <div class="item">
+                    <img src="asset/foto/slider/slider1.jpg" alt="slider1.jpg">
+                    <main class="content">
+                        <h1>Toko <span>Online</span></h1>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
+                            odio voluptates.
+                        </p>
+                        <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                    </main>
+                </div>
+
+                <div class="item">
+                    <img src="asset/foto/slider/slider2.jpg" alt="slider2.jpg">
+                    <main class="content">
+                        <h1>Toko <span>Online</span></h1>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
+                            odio voluptates.
+                        </p>
+                        <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                    </main>
+                </div>
+
+                <div class="item">
+                    <img src="asset/foto/slider/slider3.jpg" alt="slider3.jpg">
+                    <main class="content">
+                        <h1>Toko <span>Online</span></h1>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio, ad repudiandae. At ullam
+                            odio voluptates.
+                        </p>
+                        <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                    </main>
+                </div>
+
+            </div>
+        </section>
+        <!-- Hero Section Akhir -->
+
+
         <div class="about">
-            <div class="judul"><span>Tentang</span> Kami</div>
             <div class="row">
                 <div class="col-md-6 about-img">
                     <img src="asset/foto/slider/slider1.jpg" alt="slider1.jpg">
@@ -110,7 +113,9 @@ while ($pecah = $ambil->fetch_assoc()) {
 
         <!-- produk section mulai -->
         <section class="produk">
-            <h2 class="judul"><span>Produk</span> Kami</h2>
+            <div class="produk-box">
+                <h2><span>Produk</span> Kami</h2>
+            </div>
             <div class="row">
                 <?php foreach ($produk as $key => $item) : ?>
                     <div class="col-md-3">
