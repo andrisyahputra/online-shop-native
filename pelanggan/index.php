@@ -72,9 +72,7 @@ $pecah = $ambil->fetch_assoc();
                     <div class="card">
                         <div class="card-header">
                             <div class="img">
-                                <img src="../asset/foto_pelanggan/<?= $pecah['foto_pelanggan'] ?>"
-                                    alt="/<?= $pecah['foto_pelanggan'] ?>"
-                                    class="rounded-circle rounded mx-auto d-block" width="150">
+                                <img src="../asset/foto_pelanggan/<?= $pecah['foto_pelanggan'] ?>" alt="/<?= $pecah['foto_pelanggan'] ?>" class="rounded-circle rounded mx-auto d-block" width="150">
                             </div>
                             <div class="card-title">
                                 <h2><?= $pecah['nama_pelanggan'] ?></h2>
@@ -100,11 +98,13 @@ $pecah = $ambil->fetch_assoc();
                     <div class="card">
                         <div class="card-body">
                             <?php
-                                if(isset($_GET['page'])){
-
-                                } else {
-                                    include 'home.php';
+                            if (isset($_GET['page'])) {
+                                if ($_GET['page'] == "pesanan") {
+                                    include 'pesanan.php';
                                 }
+                            } else {
+                                include 'home.php';
+                            }
                             ?>
                         </div>
                     </div>

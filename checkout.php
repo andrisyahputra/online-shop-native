@@ -2,6 +2,8 @@
 session_start();
 include 'koneksi/koneksi.php';
 
+$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+
 if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja'])) {
     echo "<script>alert('Keranjang Kosong, Silakan Belanja');</script>";
     echo "<script>location='produk.php';</script>";
@@ -64,6 +66,7 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
                                     $pecah = $ambil->fetch_assoc();
                                     $subharga = $pecah['harga_produk'] * $jumlah;
+                                    $subberat = $pecah['berat_produk'] * $jumlah;
                                     $totalbelanja = $subtotal += $subharga;
                                 ?>
                                     <tr class="">
@@ -148,6 +151,7 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
                                     </div>
                                 </div>
 
+                                <input type="text" name="total_berat" class="form-control" value="<?= $subberat ?>" readonly hidden>
                                 <input type="text" name="total_berat" class="form-control" value="120" readonly hidden>
                                 <input type="text" name="nama_provinsi" class="form-control" readonly hidden>
                                 <input type="text" name="nama_distrik" class="form-control" readonly hidden>
@@ -168,6 +172,47 @@ if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja
             </div>
         </div>
     </section>
+
+    <?php
+    if (isset($_POST['checkout'])) {
+        $id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+        $tanggal_pembelian = date('y-m-d');
+        $alamat = $_POST['alamat'];
+        $total_berat = $_POST['total_berat'];
+        $nama_provinsi = $_POST['nama_provinsi'];
+        $nama_distrik = $_POST['nama_distrik'];
+        $type_distrik = $_POST['type_distrik'];
+        $kode_pos = $_POST['kode_pos'];
+        $nama_ekspedisi = $_POST['nama_ekspedisi'];
+        $paket = $_POST['paket'];
+        $ongkir = $_POST['ongkir'];
+        $etd = $_POST['etd'];
+        $total_pembelian = $totalbelanja + $ongkir;
+
+
+        $koneksi->query("INSERT INTO `pembelian`( `id_pelanggan`, `tanggal_pembelian`, `total_pembelian`, `alamat`, `total_berat`, `provinsi`, `distrik`, `type`, `kode_pos`, `ekspedisi`, `paket`, `ongkir`, `estimasi`) VALUES ('$id_pelanggan','$tanggal_pembelian','$total_pembelian','$alamat','$total_berat','$nama_provinsi','$nama_distrik','$type_distrik','$kode_pos','$nama_ekspedisi','$paket','$ongkir','$etd')");
+
+        $id_pembeli = $koneksi->insert_id;
+
+        foreach ($_SESSION['keranjang_belanja'] as $id_produk => $jumlah) {
+            $ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+            $pecah = $ambil->fetch_assoc();
+            $nama = $pecah['nama_produk'];
+            $harga = $pecah['harga_produk'];
+            $berat = $pecah['berat_produk'];
+            $subberat = $berat * $jumlah;
+            $subharga = $harga * $jumlah;
+
+            $koneksi->query("INSERT INTO pembelian_produk(id_pembelian, id_produk, nama, harga, berat, subberat, subharga,jumlah) VALUES ('$id_pembeli',' $id_produk','$nama','$harga','$berat','$subberat','$subharga','$jumlah')");
+
+            $koneksi->query("UPDATE produk SET stok_produk=stok_produk-$jumlah WHERE id_produk='$id_produk'");
+        }
+
+        unset($_SESSION['keranjang_belanja']);
+        echo "<script>alert('Pembelian Sukses');</script>";
+        echo "<script>location='pelanggan/index.php?page=pesanan';</script>";
+    }
+    ?>
 
 
     <?php include 'include/footer.php' ?>
