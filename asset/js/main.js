@@ -11,6 +11,14 @@ document.querySelector("#btn-user").onclick = (e) => {
   userMenu.classList.toggle("active");
   e.preventDefault();
 };
+// ketika tombol search di klik
+const searchForm = document.querySelector(".search-form");
+const searchBox = document.querySelector("#search-box");
+document.querySelector("#btn-search").onclick = (e) => {
+  searchForm.classList.toggle("active");
+  searchBox.focus();
+  e.preventDefault();
+};
 
 // kemudian kita buat menu sidebar ketika di klik di luar menu navbar itu tetutup
 const btnMenu = document.querySelector("#btn-menu");

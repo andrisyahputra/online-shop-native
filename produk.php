@@ -9,6 +9,19 @@ if (isset($_GET['idkategori'])) {
     while ($pecah = $ambil->fetch_assoc()) {
         $ketegori_produk[] = $pecah;
     }
+} elseif (isset($_GET['keyword'])) {
+    $keyword = $_GET['keyword'];
+
+    $cariproduk = [];
+    $ambil = $koneksi->query(
+        "SELECT * FROM produk 
+    WHERE 
+    nama_produk LIKE '%$keyword%' OR 
+    deskripsi_produk LIKE '%$keyword%'"
+    );
+    while ($pecah = $ambil->fetch_assoc()) {
+        $cariproduk[] = $pecah;
+    }
 } else {
     $produk = [];
     $ambil = $koneksi->query("SELECT * FROM produk JOIN kategori ON produk.id_kategori=kategori.id_kategori");
@@ -16,6 +29,7 @@ if (isset($_GET['idkategori'])) {
         $produk[] = $pecah;
     }
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -48,6 +62,9 @@ if (isset($_GET['idkategori'])) {
             <ul class="breadcrumb">
                 <li><a href="index.php">Beranda</a></li>
                 <li>Produk</li>
+                <?php if (isset($keyword)) : ?>
+                    <li><?= $keyword ?></li>
+                <?php endif ?>
             </ul>
 
             <div class="row produk">
@@ -87,6 +104,33 @@ if (isset($_GET['idkategori'])) {
                                     </div>
                                 </div>
                             <?php endforeach ?>
+
+                        <?php elseif (isset($keyword)) : ?>
+                            <?php foreach ($cariproduk as $item) : ?>
+                                <div class="col-md-4 card-produk">
+                                    <div class="card">
+                                        <img src="asset/foto_produk/<?= $item['foto_produk']; ?>" alt="<?= $item['foto_produk']; ?>">
+                                        <div class="card-body content">
+                                            <h5><?= $item['nama_produk'] ?></h5>
+                                            <p>Rp. <?= number_format($item['harga_produk']) ?></p>
+                                            <a href="beli.php?idproduk=<?= $item['id_produk']; ?>" class="btn btn-sm btn-success">
+                                                <i class="fas fa-shopping-cart"></i> Keranjang
+                                            </a>
+                                            <a href="detail_produk.php?idproduk=<?= $item['id_produk'] ?>" class="btn btn-sm btn-success">
+                                                <i class="fas fa-eye"></i> Details
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach ?>
+                            <?php if (!empty($keyword)) : ?>
+                                <div class="col-md-12 mt-2">
+                                    <div class="alert alert-danger shadow">
+                                        <p>Pencarian Porduk Tidak Ditemukan</p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
 
                         <?php else : ?>
                             <?php foreach ($produk as $key => $item) : ?>

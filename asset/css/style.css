@@ -28,6 +28,25 @@ body {
   color: #333;
   background-color: #f0f0f0;
 }
+/* navbar search form */
+.navbar .search-form {
+  position: absolute;
+  display: flex;
+  top: 110%;
+  right: 12%;
+  width: 30%;
+  align-items: center;
+  transform: scaleX(0);
+  transition: 0.3s;
+  transform-origin: top;
+}
+.navbar .search-form.active {
+  transform: scaleX(1);
+}
+.navbar .search-form input {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
 
 /* navbar */
 .navbar {
@@ -542,6 +561,15 @@ footer .footer-social a:hover {
   }
   .navbar .navbar-menu a:hover::after {
     transform: scaleX(0.2);
+  }
+  /* navbar search form */
+  .navbar .search-form {
+    right: 6%;
+    width: 50%;
+  }
+  .navbar .search-form input {
+    font-size: 1rem;
+    padding: 1rem;
   }
   /* hero section */
   .hero #owl-nav .owl-prev,
