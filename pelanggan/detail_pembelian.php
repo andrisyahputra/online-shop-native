@@ -1,4 +1,4 @@
-<div class="shadow p-3 mb-3 bg-white rounded">
+<div class="shadow p-3 mb-4 bg-white rounded">
     <h5><b>Halaman Detail Pembelian</b></h5>
 </div>
 
@@ -20,49 +20,62 @@ if ($id_pembelian !== $id_pelanggan) {
 
 <div class="row">
     <div class="col-md-4">
-        <div class="card shadow bg-white text-center">
-            <div class="card-header">
-                <strong>Data Pelanggan</strong>
-            </div>
-            <div class="card-body">
-                <!--  -->
-                <p>
-                    <?= $detail['nama_pelanggan'] ?><br>
-                    <?= $detail['email_pelanggan'] ?><br>
-                    <?= $detail['telepon_pelanggan'] ?>
-                </p>
-            </div>
+        <h5>Data Pelanggan</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>Nama :</th>
+                    <td><?= $detail['nama_pelanggan'] ?></td>
+                </tr>
+                <tr>
+                    <th>Email :</th>
+                    <td><?= $detail['email_pelanggan'] ?></td>
+                </tr>
+                <tr>
+                    <th>Telepon :</th>
+                    <td><?= $detail['telepon_pelanggan'] ?></td>
+                </tr>
+            </table>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card shadow bg-white text-center">
-            <div class="card-header">
-                <strong>Data Pembelian</strong>
-            </div>
-            <div class="card-body">
-                <!--  -->
-                No. Pembelian: <?= $detail['id_pembelian'] ?><br>
-                <?= date("d F Y", strtotime($detail['tanggal_pembelian'])) ?><br>
-                Rp. <?= number_format($detail['total_pembelian']) ?>
-                <!--  -->
-            </div>
+        <h5>Data Pembelian</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>No.Pembelian :</th>
+                    <td><?= $detail['id_pembelian'] ?></td>
+                </tr>
+                <tr>
+                    <th>Tanggal :</th>
+                    <td><?= $detail['tanggal_pembelian'] ?></td>
+                </tr>
+                <tr>
+                    <th>Total :</th>
+                    <td>Rp. <?= number_format($detail['total_pembelian']) ?></td>
+                </tr>
+            </table>
         </div>
     </div>
 
     <div class="col-md-4">
-        <div class="card shadow bg-white text-center">
-            <div class="card-header">
-                <strong>Data Pengiriman</strong>
-            </div>
-            <div class="card-body">
-                <!--  -->
-                <?= $detail['ekspedisi'] ?> -
-                <?= $detail['paket'] ?> -
-                Rp. <?= number_format($detail['ongkir']) ?> <br>
-                <?= $detail['alamat'] ?> -
-                <!--  -->
-            </div>
+        <h5>Data Pengiriman</h5>
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <th>Alamat :</th>
+                    <td><?= $detail['alamat'] ?></td>
+                </tr>
+                <tr>
+                    <th>Ekspedisi:</th>
+                    <td><?= $detail['ekspedisi'] ?></td>
+                </tr>
+                <tr>
+                    <th>Ongkir :</th>
+                    <td>Rp. <?= number_format($detail['ongkir']) ?></td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>

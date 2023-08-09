@@ -41,7 +41,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                         <a href="index.php?page=pembayaran&id=<?= $item['id_pembelian'] ?>"
                             class="btn btn-sm btn-success">Input Pembayaran</a>
                         <?php else : ?>
-                        <a href="index.php?page=pembayaran&id=<?= $item['id_pembelian'] ?>"
+                        <a href="index.php?page=detail_pembayaran&id=<?= $item['id_pembelian'] ?>"
                             class="btn btn-sm btn-info">Lihat Pembayaran</a>
                         <?php endif; ?>
                     </td>
