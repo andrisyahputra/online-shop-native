@@ -7,6 +7,13 @@ $id_pembelian = $_GET['id'];
 
 $ambil = $koneksi->query("SELECT * FROM pembelian JOIN pelanggan ON pembelian.id_pelanggan=pelanggan.id_pelanggan WHERE pembelian.id_pembelian='$id_pembelian'");
 $detail = $ambil->fetch_assoc();
+
+$id_pembelian = $detail['id_pelanggan'];
+$id_pelanggan = $_SESSION['pelanggan']['id_pelanggan'];
+if ($id_pembelian !== $id_pelanggan) {
+    echo "<script>alert('Tidak ditemukan');</script>";
+    echo "<script>location='index.php?page=pesanan';</script>";
+}
 ?>
 <!-- untuk melihat -->
 <!-- <pre></?= print_r($detail); ?></pre> -->
@@ -85,14 +92,14 @@ while ($pecah = $ambil->fetch_assoc()) {
                 <tbody>
                     <?php foreach ($pp as $key => $item) : ?>
 
-                    <tr>
-                        <td><?= $key + 1 ?></td>
-                        <td><?= $item['nama'] ?></td>
-                        <td>Rp. <?= number_format($item['harga']) ?></td>
-                        <td><?= $item['jumlah'] ?></td>
-                        <td><?= $item['subberat'] ?> Gr.</td>
-                        <td>Rp. <?= number_format($item['subharga']); ?></td>
-                    </tr>
+                        <tr>
+                            <td><?= $key + 1 ?></td>
+                            <td><?= $item['nama'] ?></td>
+                            <td>Rp. <?= number_format($item['harga']) ?></td>
+                            <td><?= $item['jumlah'] ?></td>
+                            <td><?= $item['subberat'] ?> Gr.</td>
+                            <td>Rp. <?= number_format($item['subharga']); ?></td>
+                        </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

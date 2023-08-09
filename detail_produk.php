@@ -4,7 +4,7 @@ include 'koneksi/koneksi.php';
 
 $id_produk = $_GET['idproduk'];
 
-$ambil = $koneksi->query("SELECT * FROM produk");
+$ambil = $koneksi->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 $produk = $ambil->fetch_assoc();
 
 $produkfoto = [];
