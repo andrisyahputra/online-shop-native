@@ -153,55 +153,56 @@ if (!isset($_SESSION['admin'])) {
                     <!-- Page Heading -->
 
                     <?php
-if (isset($_GET['halaman'])) {
+                    if (isset($_GET['halaman'])) {
 
-    // halaman kategori
-    if ($_GET['halaman'] == "kategori") {
-        include 'kategori.php';
-    } elseif ($_GET['halaman'] == "tambah_kategori") {
-        include 'tambah/tambah_kategori.php';
-    } elseif ($_GET['halaman'] == "edit_kategori") {
-        include 'edit/edit_kategori.php';
-    } elseif ($_GET['halaman'] == "hapus_kategori") {
-        include 'hapus/hapus_kategori.php';
-    }
+                        // halaman kategori
+                        if ($_GET['halaman'] == "kategori") {
+                            include 'kategori.php';
+                        } elseif ($_GET['halaman'] == "tambah_kategori") {
+                            include 'tambah/tambah_kategori.php';
+                        } elseif ($_GET['halaman'] == "edit_kategori") {
+                            include 'edit/edit_kategori.php';
+                        } elseif ($_GET['halaman'] == "hapus_kategori") {
+                            include 'hapus/hapus_kategori.php';
+                        }
 
-    // halaman produk
-    elseif ($_GET['halaman'] == "produk") {
-        include 'produk.php';
-    } elseif ($_GET['halaman'] == "tambah_produk") {
-        include 'tambah/tambah_produk.php';
-    } elseif ($_GET['halaman'] == "detail_produk") {
-        include 'detail/detail_produk.php';
-    } elseif ($_GET['halaman'] == "hapus_foto") {
-        include 'hapus/hapus_foto.php';
-    } elseif ($_GET['halaman'] == "edit_produk") {
-        include 'edit/edit_produk.php';
-    } elseif ($_GET['halaman'] == "hapus_produk") {
-        include 'hapus/hapus_produk.php';
-    }
+                        // halaman produk
+                        elseif ($_GET['halaman'] == "produk") {
+                            include 'produk.php';
+                        } elseif ($_GET['halaman'] == "tambah_produk") {
+                            include 'tambah/tambah_produk.php';
+                        } elseif ($_GET['halaman'] == "detail_produk") {
+                            include 'detail/detail_produk.php';
+                        } elseif ($_GET['halaman'] == "hapus_foto") {
+                            include 'hapus/hapus_foto.php';
+                        } elseif ($_GET['halaman'] == "edit_produk") {
+                            include 'edit/edit_produk.php';
+                        } elseif ($_GET['halaman'] == "hapus_produk") {
+                            include 'hapus/hapus_produk.php';
+                        }
 
-    // halaman pembelian
-    elseif ($_GET['halaman'] == "pembelian") {
-        include 'pembelian.php';
-    } elseif ($_GET['halaman'] == "detail_pembelian") {
-        include 'detail/detail_pembelian.php';
-    }
+                        // halaman pembelian
+                        elseif ($_GET['halaman'] == "pembelian") {
+                            include 'pembelian.php';
+                        } elseif ($_GET['halaman'] == "detail_pembelian") {
+                            include 'detail/detail_pembelian.php';
+                        } elseif ($_GET['halaman'] == "pembayaran") {
+                            include 'pembayaran.php';
+                        }
 
-    // halaman pelanggan
-    elseif ($_GET['halaman'] == "pelanggan") {
-        include 'pelanggan.php';
-    }
+                        // halaman pelanggan
+                        elseif ($_GET['halaman'] == "pelanggan") {
+                            include 'pelanggan.php';
+                        }
 
-    // halaman logout
-    elseif ($_GET['halaman'] == "logout") {
-        include 'logout.php';
-    }
-
-} else {
-    include 'dashboard.php';
-}
-?>
+                        // halaman logout
+                        elseif ($_GET['halaman'] == "logout") {
+                            include 'logout.php';
+                        }
+                    } else {
+                        include 'dashboard.php';
+                    }
+                    ?>
 
                 </div>
                 <!-- /.container-fluid -->

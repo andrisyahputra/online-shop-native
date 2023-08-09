@@ -28,11 +28,17 @@ while ($pecah = $ambil->fetch_assoc()) {
                     <td><?= $key + 1 ?></td>
                     <td><?= date("d F Y", strtotime($item['tanggal_pembelian'])) ?></td>
                     <td>Rp. <?= number_format($item['total_pembelian']) ?></td>
-                    <td class="text-center text-danger text-lowercase">
 
-                        <?= $item['status'] ?>
+                    <td class="text-center text-<?= $item['status'] == 'pending' ? 'danger' : 'success'; ?>">
 
+                        <?= $item['status'] ?><br>
+                        <!-- jika resi pengiriman tidak kosong -->
+                        <?php if (!empty($item['resi_pengiriman'])) : ?>
+                        <?= $item['resi_pengiriman'] ?>
+
+                        <?php endif; ?>
                     </td>
+
                     <td class="text-center" width="250">
                         <a href="index.php?page=detail_pembelian&id=<?= $item['id_pembelian'] ?>"
                             class="btn btn-sm btn-primary">Nota</a>
