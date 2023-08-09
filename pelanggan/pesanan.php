@@ -24,20 +24,28 @@ while ($pecah = $ambil->fetch_assoc()) {
             </thead>
             <tbody>
                 <?php foreach ($pembelian as $key => $item) : ?>
-                    <tr>
-                        <td><?= $key + 1 ?></td>
-                        <td><?= date("d F Y", strtotime($item['tanggal_pembelian'])) ?></td>
-                        <td>Rp. <?= number_format($item['total_pembelian']) ?></td>
-                        <td class="text-center">
-                            <a href="#" class="btn btn-sm btn-warning">
-                                <?= $item['status'] ?>
-                            </a>
-                        </td>
-                        <td class="text-center" width="200">
-                            <a href="index.php?page=detail_pembelian&id=<?= $item['id_pembelian'] ?>" class="btn btn-sm btn-info">Lihat Pesanan</a>
-                            <a href="" class="btn btn-sm btn-success"> Bayar</a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td><?= $key + 1 ?></td>
+                    <td><?= date("d F Y", strtotime($item['tanggal_pembelian'])) ?></td>
+                    <td>Rp. <?= number_format($item['total_pembelian']) ?></td>
+                    <td class="text-center text-danger text-lowercase">
+
+                        <?= $item['status'] ?>
+
+                    </td>
+                    <td class="text-center" width="250">
+                        <a href="index.php?page=detail_pembelian&id=<?= $item['id_pembelian'] ?>"
+                            class="btn btn-sm btn-primary">Nota</a>
+                        <!-- apakah status nya panding itu -->
+                        <?php if ($item['status'] == 'pending') : ?>
+                        <a href="index.php?page=pembayaran&id=<?= $item['id_pembelian'] ?>"
+                            class="btn btn-sm btn-success">Input Pembayaran</a>
+                        <?php else : ?>
+                        <a href="index.php?page=pembayaran&id=<?= $item['id_pembelian'] ?>"
+                            class="btn btn-sm btn-info">Lihat Pembayaran</a>
+                        <?php endif; ?>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
