@@ -17,17 +17,23 @@ $detail = $ambil->fetch_assoc();
             <div class="card-header">
                 <strong>Data Pelanggan</strong>
             </div>
-            <div class="card-body row">
-                <!--  -->
-                <label class="col-md-4 col-form-label">Nama :</label>
-                <label class="col-md-8 col-form-label"><?=$detail['nama_pelanggan']?></label>
-                <!--  -->
-                <label class="col-md-4 col-form-label">Email :</label>
-                <label class="col-md-8 col-form-label"><?=$detail['email_pelanggan']?></label>
-                <!--  -->
-                <label class="col-md-4 col-form-label">Telepon :</label>
-                <label class="col-md-8 col-form-label"><?=$detail['telepon_pelanggan']?></label>
-                <!--  -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>Nama :</th>
+                            <td><?= $detail['nama_pelanggan'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Email :</th>
+                            <td><?= $detail['email_pelanggan'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Telepon :</th>
+                            <td><?= $detail['telepon_pelanggan'] ?></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -37,18 +43,54 @@ $detail = $ambil->fetch_assoc();
             <div class="card-header">
                 <strong>Data Pembelian</strong>
             </div>
-            <div class="card-body row">
-                <!--  -->
-                <label class="col-md-4 col-form-label">Tanggal :</label>
-                <label class="col-md-8 col-form-label"><?=$detail['tanggal_pembelian']?></label>
-                <!--  -->
-                <!--  -->
-                <label class="col-md-4 col-form-label">Total :</label>
-                <label class="col-md-8 col-form-label"><?=number_format($detail['total_pembelian'])?></label>
-                <!--  -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>No.Pembelian :</th>
+                            <td><?= $detail['id_pembelian'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Tanggal :</th>
+                            <td><?= $detail['tanggal_pembelian'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Total :</th>
+                            <td>Rp. <?= number_format($detail['total_pembelian']) ?></td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="card shadow bg-white">
+            <div class="card-header">
+                <strong>Data Pembelian</strong>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th>Alamat :</th>
+                            <td><?= $detail['alamat'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Ekspedisi:</th>
+                            <td><?= $detail['ekspedisi'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Ongkir :</th>
+                            <td>Rp. <?= number_format($detail['ongkir']) ?></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 <?php
 $pp = [];
@@ -73,16 +115,16 @@ while ($pecah = $ambil->fetch_assoc()) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($pp as $key => $item): ?>
-                    <?php $subtotal = $item['harga_produk'] * $item['jumlah'];?>
-                    <tr>
-                        <td><?=$key + 1?></td>
-                        <td><?=$item['nama_produk']?></td>
-                        <td>Rp .<?=number_format($item['harga_produk'])?></td>
-                        <td><?=$item['jumlah']?></td>
-                        <td>Rp <?=number_format($subtotal);?></td>
-                    </tr>
-                    <?php endforeach;?>
+                    <?php foreach ($pp as $key => $item) : ?>
+                        <?php $subtotal = $item['harga_produk'] * $item['jumlah']; ?>
+                        <tr>
+                            <td><?= $key + 1 ?></td>
+                            <td><?= $item['nama_produk'] ?></td>
+                            <td>Rp .<?= number_format($item['harga_produk']) ?></td>
+                            <td><?= $item['jumlah'] ?></td>
+                            <td>Rp <?= number_format($subtotal); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

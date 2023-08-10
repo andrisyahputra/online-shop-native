@@ -46,9 +46,9 @@ if (!isset($_SESSION['admin'])) {
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-store-alt"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Toko Online</div>
+                <div class="sidebar-brand-text mx-2">Toko Online</div>
             </a>
 
             <!-- Divider -->
@@ -67,36 +67,42 @@ if (!isset($_SESSION['admin'])) {
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=kategori">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-list"></i>
                     <span>Kategori</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=produk">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-cubes"></i>
                     <span>Produk</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=pembelian">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-shopping-cart"></i>
                     <span>Pembelian</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=pelanggan">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-users"></i>
                     <span>Pelanggan</span></a>
             </li>
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=logout">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-sign-out-alt"></i>
                     <span>Logout</span></a>
+            </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=laporan_pembelian">
+                    <i class="fas fa-file"></i>
+                    <span>Laporan</span></a>
             </li>
 
 
@@ -198,6 +204,10 @@ if (!isset($_SESSION['admin'])) {
                         // halaman logout
                         elseif ($_GET['halaman'] == "logout") {
                             include 'logout.php';
+                        }
+                        // halaman laporan
+                        elseif ($_GET['halaman'] == "laporan_pembelian") {
+                            include 'laporan_pembelian.php';
                         }
                     } else {
                         include 'dashboard.php';
