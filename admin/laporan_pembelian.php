@@ -119,6 +119,6 @@ if (isset($_POST['cari'])) {
 </div>
 <?php if (!empty($semuadata)) : ?>
     <div class="alert shadow alert-primary mt-3">
-        <a href="#" class="btn btn-success">Download Laporan</a>
+        <a href="download_laporan.php?tglm=<?= $tanggal_mulai ?>&tgls=<?= $tanggal_selesai ?>&status=<?= $status ?>" class="btn btn-success" target="_blank">Download Laporan</a>
     </div>
 <?php endif; ?>

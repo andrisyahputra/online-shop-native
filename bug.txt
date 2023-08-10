@@ -1,2 +1,4 @@
 bug
 ketika ke profile ada console log
+
+laporan ketika status tidak di cari muncul eror
