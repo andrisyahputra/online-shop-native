@@ -46,9 +46,7 @@ while ($pecah = $ambil->fetch_assoc()) {
 
     <!-- Custom fonts for this template-->
     <link href="../asset/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../asset/css/sb-admin-2.min.css" rel="stylesheet">
@@ -160,11 +158,9 @@ while ($pecah = $ambil->fetch_assoc()) {
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -178,18 +174,14 @@ while ($pecah = $ambil->fetch_assoc()) {
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -202,70 +194,62 @@ while ($pecah = $ambil->fetch_assoc()) {
 
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
                                 <span class="badge badge-danger badge-counter"><?= $item_pem; ?></span>
                             </a>
                             <!-- Dropdown - Alerts -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="alertsDropdown">
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                                 <h6 class="dropdown-header">
                                     Total Pembayaran
                                 </h6>
 
 
                                 <?php foreach ($data_pbayar as $key => $item) : ?>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="index.php?halaman=pembayaran&id=<?= $item['id_pembelian'] ?>">
-                                    <div class="mr-3">
-                                        <div class="icon-circle bg-warning">
-                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                    <a class="dropdown-item d-flex align-items-center" href="index.php?halaman=pembayaran&id=<?= $item['id_pembelian'] ?>">
+                                        <div class="mr-3">
+                                            <div class="icon-circle bg-warning">
+                                                <i class="fas fa-exclamation-triangle text-white"></i>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div>
-                                        <div class="small text-gray-500">
-                                            <?= date("d F Y", strtotime(($item['tanggal']))) ?></div>
-                                        Rp. <?= number_format($item['jumlah']) ?> <br>
-                                        <?= $item['nama']; ?>.
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500"
-                                    href="index.php?halaman=pembelian">Lihat Semua Pesanan Produk</a>
+                                        <div>
+                                            <div class="small text-gray-500">
+                                                <?= date("d F Y", strtotime(($item['tanggal']))) ?></div>
+                                            Rp. <?= number_format($item['jumlah']) ?> <br>
+                                            <?= $item['nama']; ?>.
+                                        </div>
+                                    </a>
+                                    <a class="dropdown-item text-center small text-gray-500" href="index.php?halaman=pembelian">Lihat Semua Pesanan Produk</a>
                                 <?php endforeach; ?>
                             </div>
                         </li>
 
                         <!-- Nav Item - Messages -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-envelope fa-fw"></i>
                                 <!-- Counter - Messages -->
                                 <span class="badge badge-danger badge-counter"><?= $item_pesan; ?></span>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="messagesDropdown">
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
                                     Message Center
                                 </h6>
 
                                 <?php foreach ($data_pesan as $key => $item) : ?>
-                                <a class="dropdown-item d-flex align-items-center"
-                                    href="index.php?halaman=detail_pesan&id=<?= $item['id_pesan'] ?>">
+                                    <a class="dropdown-item d-flex align-items-center" href="index.php?halaman=detail_pesan&id=<?= $item['id_pesan'] ?>">
 
-                                    <div>
-                                        <div class="text-truncate">
-                                            <?= $item['nama']; ?>
+                                        <div>
+                                            <div class="text-truncate">
+                                                <?= $item['nama']; ?>
+                                            </div>
+                                            <div class="small text-gray-500"><?= $item['email']; ?></div>
                                         </div>
-                                        <div class="small text-gray-500"><?= $item['email']; ?></div>
-                                    </div>
-                                </a>
+                                    </a>
                                 <?php endforeach; ?>
-                                <a class="dropdown-item text-center small text-gray-500"
-                                    href="index.php?halaman=pesan">Lihat Semua
+                                <a class="dropdown-item text-center small text-gray-500" href="index.php?halaman=pesan">Lihat Semua
                                     Komentar</a>
                             </div>
                         </li>
@@ -274,16 +258,12 @@ while ($pecah = $ambil->fetch_assoc()) {
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span
-                                    class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $admin['nama_lengkap'] ?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="../asset/foto_admin/<?= $admin['foto_admin'] ?>">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $admin['nama_lengkap'] ?></span>
+                                <img class="img-profile rounded-circle" src="../asset/foto_admin/<?= $admin['foto_admin'] ?>">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="index.php?halaman=admin">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -318,6 +298,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                             include 'pesan.php';
                         } elseif ($_GET['halaman'] == "detail_pesan") {
                             include 'detail/detail_pesan.php';
+
                             // halaman kategori
                         } elseif ($_GET['halaman'] == "kategori") {
                             include 'kategori.php';
@@ -399,8 +380,7 @@ while ($pecah = $ambil->fetch_assoc()) {
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -436,12 +416,12 @@ while ($pecah = $ambil->fetch_assoc()) {
     <script src="../asset/js/demo/datatables-demo.js"></script>
 
     <script>
-    $(document).ready(function() {
-        $(".btn-tambah").on("click", function() {
-            // alert("berhasil")tes
-            $('.input-foto').append("<input type='file' name='foto[]' class='form-control mt-1'>");
+        $(document).ready(function() {
+            $(".btn-tambah").on("click", function() {
+                // alert("berhasil")tes
+                $('.input-foto').append("<input type='file' name='foto[]' class='form-control mt-1'>");
+            })
         })
-    })
     </script>
 </body>
 

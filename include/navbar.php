@@ -5,7 +5,7 @@
         <a href="produk.php">Produk</a>
         <a href="#">About</a>
         <a href="#">Tentang Kami</a>
-        <a href="#">Kontak</a>
+        <a href="kontak.php">Kontak</a>
     </div>
 
     <div class="navbar-icon">

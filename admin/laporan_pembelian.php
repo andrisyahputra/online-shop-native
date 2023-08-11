@@ -93,7 +93,7 @@ if (isset($_POST['cari'])) {
                 <?php if (!empty($semuadata)) : ?>
                     <?php $total = 0 ?>
                     <?php foreach ($semuadata as $key => $item) : ?>
-                        <?php $total += $item['total_pembelian'] ?>
+                        <?php $totalbelanja = $total += $item['total_pembelian'] ?>
                         <tbody>
                             <td width="50"><?= $key + 1 ?></td>
                             <td><?= $item['nama_pelanggan'] ?></td>
@@ -104,7 +104,7 @@ if (isset($_POST['cari'])) {
                     <?php endforeach; ?>
                     <tfoot>
                         <th colspan="4">Total</th>
-                        <th>Rp. <?= number_format($total) ?></th>
+                        <th>Rp. <?= number_format($totalbelanja) ?></th>
                     </tfoot>
                 <?php else : ?>
                     <tr class="text-center">

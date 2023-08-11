@@ -8,3 +8,12 @@ foto ketika di ubah foto sebelumnya shearus nya dihapus
 
 untuk hapus pesan diserahkan dan juga data pelanggan juga tidak ada
 
+tentang kami belum di isi beuat latihan
+
+dibuatkan banner pada halaman landing page dan juga database agar mudah
+buat tabel foto bener
+nama 
+deskriosi buat sikit deskrip agar tombol tidak kebawah
+terakhir buat foto untuk bener nya
+
+di admin juga masukan tambah link untuk tambah bener
