@@ -7,6 +7,28 @@ if (!isset($_SESSION['admin'])) {
     echo "<script>location='login.php';</script>";
     exit();
 }
+// data admin
+$id_admin = $_SESSION['admin']['id'];
+
+$ambil = $koneksi->query("SELECT * FROM admin WHERE id='$id_admin'");
+$admin = $ambil->fetch_assoc();
+
+// data pembayaran
+$data_pbayar = [];
+$ambil = $koneksi->query("SELECT * FROM pembayaran");
+$item_pem = 0;
+while ($pecah = $ambil->fetch_assoc()) {
+    $data_pbayar[] = $pecah;
+    $item_pem++;
+}
+// data pesan
+$data_pesan = [];
+$ambil = $koneksi->query("SELECT * FROM pesan");
+$item_pesan = 0;
+while ($pecah = $ambil->fetch_assoc()) {
+    $data_pesan[] = $pecah;
+    $item_pesan++;
+}
 
 ?>
 <!DOCTYPE html>
@@ -64,6 +86,12 @@ if (!isset($_SESSION['admin'])) {
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.php?halaman=pesan">
+                    <i class="fas fa-bell fa-fw"></i>
+                    <span>Pesan</span></a>
+            </li>
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="index.php?halaman=kategori">
@@ -148,6 +176,127 @@ if (!isset($_SESSION['admin'])) {
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter"><?= $item_pem; ?></span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Total Pembayaran
+                                </h6>
+
+
+                                <?php foreach ($data_pbayar as $key => $item) : ?>
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="index.php?halaman=pembayaran&id=<?= $item['id_pembelian'] ?>">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">
+                                            <?= date("d F Y", strtotime(($item['tanggal']))) ?></div>
+                                        Rp. <?= number_format($item['jumlah']) ?> <br>
+                                        <?= $item['nama']; ?>.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500"
+                                    href="index.php?halaman=pembelian">Lihat Semua Pesanan Produk</a>
+                                <?php endforeach; ?>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter"><?= $item_pesan; ?></span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+
+                                <?php foreach ($data_pesan as $key => $item) : ?>
+                                <a class="dropdown-item d-flex align-items-center"
+                                    href="index.php?halaman=detail_pesan&id=<?= $item['id_pesan'] ?>">
+
+                                    <div>
+                                        <div class="text-truncate">
+                                            <?= $item['nama']; ?>
+                                        </div>
+                                        <div class="small text-gray-500"><?= $item['email']; ?></div>
+                                    </div>
+                                </a>
+                                <?php endforeach; ?>
+                                <a class="dropdown-item text-center small text-gray-500"
+                                    href="index.php?halaman=pesan">Lihat Semua
+                                    Komentar</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $admin['nama_lengkap'] ?></span>
+                                <img class="img-profile rounded-circle"
+                                    src="../asset/foto_admin/<?= $admin['foto_admin'] ?>">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="index.php?halaman=admin">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
                     </ul>
 
                 </nav>
@@ -161,8 +310,16 @@ if (!isset($_SESSION['admin'])) {
                     <?php
                     if (isset($_GET['halaman'])) {
 
-                        // halaman kategori
-                        if ($_GET['halaman'] == "kategori") {
+                        // halaman admin
+                        if ($_GET['halaman'] == "admin") {
+                            include 'admin.php';
+                            // halaman pesan
+                        } elseif ($_GET['halaman'] == "pesan") {
+                            include 'pesan.php';
+                        } elseif ($_GET['halaman'] == "detail_pesan") {
+                            include 'detail/detail_pesan.php';
+                            // halaman kategori
+                        } elseif ($_GET['halaman'] == "kategori") {
                             include 'kategori.php';
                         } elseif ($_GET['halaman'] == "tambah_kategori") {
                             include 'tambah/tambah_kategori.php';
@@ -255,7 +412,7 @@ if (!isset($_SESSION['admin'])) {
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="index.php?halaman=logout">Logout</a>
                 </div>
             </div>
         </div>

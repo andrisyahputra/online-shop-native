@@ -2,3 +2,9 @@ bug
 ketika ke profile ada console log
 
 laporan ketika status tidak di cari muncul eror
+
+foto dibuat date('YmdHis') agar berbeda tidak di timpa
+foto ketika di ubah foto sebelumnya shearus nya dihapus
+
+untuk hapus pesan diserahkan dan juga data pelanggan juga tidak ada
+

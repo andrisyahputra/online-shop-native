@@ -180,7 +180,7 @@ while ($pecah = $ambil->fetch_assoc()) {
                                     </label>
                                     <div class="col-sm-8">
                                         <div class="mb-3">
-                                            <input type="number" class="form-control" name="nowa" placeholder="Masukkan Nomor WA Anda ." required>
+                                            <input type="text" class="form-control" name="nowa" placeholder="Masukkan Nomor WA Anda ." required>
                                         </div>
                                     </div>
                                 </div>
@@ -191,13 +191,13 @@ while ($pecah = $ambil->fetch_assoc()) {
                                     </label>
                                     <div class="col-sm-8">
                                         <div class="mb-3">
-                                            <textarea type="number" class="form-control" name="nowa" placeholder="Masukkan Nomor Pesan Anda ." required></textarea>
+                                            <textarea class="form-control" name="pesan" placeholder="Masukkan Pesan Anda ." required></textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="text-right">
-                                    <button type="button" name="kirim" class="btn btn-primary">Kirim</button>
+                                    <button name="kirim" class="btn btn-primary">Kirim</button>
                                 </div>
 
                             </div>
@@ -207,6 +207,22 @@ while ($pecah = $ambil->fetch_assoc()) {
             </div>
         </section>
         <!-- kontak akhir-->
+        <?php
+        if (isset($_POST['kirim'])) {
+            $nama = $_POST['nama'];
+            $email = $_POST['email'];
+            $nowa = $_POST['nowa'];
+            $pesan = $_POST['pesan'];
+
+            $koneksi->query("INSERT INTO pesan
+                (nama,email,no_telepon,isi_pesan) VALUES
+                ('$nama','$email','$nowa','$pesan')
+                ");
+
+            echo "<script>alert('Pesan Dikirim');</script>";
+            echo "<script>location='kontak.php';</script>";
+        }
+        ?>
 
 
     </div>
