@@ -3,7 +3,6 @@
     <div class="navbar-menu">
         <a href="index.php">Beranda</a>
         <a href="produk.php">Produk</a>
-        <a href="#">About</a>
         <a href="#">Tentang Kami</a>
         <a href="kontak.php">Kontak</a>
     </div>

@@ -6,9 +6,17 @@ include 'koneksi/koneksi.php';
 //     echo "<script>alert('Keranjang Kosong, Silakan Belanja');</script>";
 //     echo "<script>location='produk.php';</script>";
 // }
+
+// jika keranjang belum login
 if (!isset($_SESSION['pelanggan'])) {
     echo "<script>alert('Silakan Login');</script>";
     echo "<script>location='login.php';</script>";
+    exit();
+}
+// jika kerajang kosong 
+if (empty($_SESSION['keranjang_belanja']) or !isset($_SESSION['keranjang_belanja'])) {
+    echo "<script>alert('Keranjang Kosong, Silakan Belanja');</script>";
+    echo "<script>location='produk.php';</script>";
     exit();
 }
 
